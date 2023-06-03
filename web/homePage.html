@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Home Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="homePage.css">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+    
+    <body>
+        <header>
+        <div class="main">
+            <img class="logo" src="logoRe.png" alt="logo">
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="homePage.html">Home</a></li>
+                    <li><a href="ProductPage.html">Product</a></li>
+                    <li><a href="ManageContactUs.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+        <nav>
+            <li class="dropdown">
+                <a class="nav-link">Account</a>
+                <ul class="dropdown-content">
+                    <li><a href="CustomerProfile.html">Edit Information</a></li>
+                    <li><a href="StartPage.html">Sign Out</a></li>
+                </ul>
+            </li>
+            <!-- <a href="CustomerProfile.html"><img class="profilePic" src="profileImg.png" alt="profileImg"></a> -->
+        </nav>
+    </header>
+
+    <div class="boxContainer_1">
+        <table class="elementsContainer">
+            <tr>
+                <td>
+                    <input type="text" placeholder="Search" class="search">
+                </td>
+                <td>
+                    <a href="#"><span class="material-icons">search</span></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- image slider start -->
+    <div class="slidPic">
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <div class="numbertext">1/4</div>
+                <img src="stationary1.jpg" style="width: 100%;">
+                <div class="text">Image 1</div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">2/4</div>
+                <img src="stationary2.jpg" style="width: 100%;">
+                <div class="text">Image 2</div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">3/4</div>
+                <img src="stationary3.jpg" style="width: 100%;">
+                <div class="text">Image 3</div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">4/4</div>
+                <img src="stationary4.jpg" style="width: 100%;">
+                <div class="text">Image 4</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0;i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            for (i = 0; i<dots.length;i++) {
+                dots[i].className = dots[i].className.replace("active","");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += "active";
+            setTimeout(showSlides,3500);
+        }
+    </script>
+    </body>
+</html>

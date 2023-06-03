@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner</title>
+    <link rel="stylesheet" type="text/css" href="ViewSalesReport.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<!-- Navigation Bar -->
+
+<body>
+    <header>
+        <div class="main">
+            <img class="logo" src="logoRe.png" alt="logo">
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="ManageStaff.html">Manage Staff</a></li>
+                    <li><a href="ViewSalesReport.html">View Sales</a></li>
+                </ul>
+            </nav>
+        </div>
+        <nav>
+            <li class="dropdown">
+                <a class="nav-link">Account</a>
+                <ul class="dropdown-content">
+                    <li><a href="OwnerProfile.html">Edit Information</a></li>
+                    <li><a href="StartPage.html">Sign Out</a></li>
+                </ul>
+            </li>
+            <!-- <a href="CustomerProfile.html"><img class="profilePic" src="profileImg.png" alt="profileImg"></a> -->
+        </nav>
+    </header>
+
+    <!-- CONTENT START HERE -->
+    <div class="top-content">
+        <h2>View Sales Report</h2>
+        <button onclick="refreshSalesReport()">Refresh</button>
+    </div>
+    <div class="table">
+        <table id="salesTable">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+<!--     footer 
+    <footer class="footer">
+        <p><b>&copy; Mini Cooperation 2023</b></p>
+    </footer>-->
+    
+    <script>
+        // Sample data (replace with your own data)
+        var salesData = [
+            { date: '2023-05-20', product: 'Product A', quantity: 5, price: 10 },
+            { date: '2023-05-21', product: 'Product B', quantity: 3, price: 15 },
+            { date: '2023-05-22', product: 'Product C', quantity: 8, price: 12 }
+        ];
+
+        // Display sales data in the table
+        function displaySalesData() {
+            var salesTable = document.getElementById('salesTable');
+            var tbody = salesTable.getElementsByTagName('tbody')[0];
+            tbody.innerHTML = '';
+
+            salesData.forEach(function (sale) {
+                var row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${sale.date}</td>
+                    <td>${sale.product}</td>
+                    <td>${sale.quantity}</td>
+                    <td>${sale.price}</td>
+                    <td>${sale.quantity * sale.price}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Refresh sales report
+        function refreshSalesReport() {
+            // Make an API call or retrieve new data from a data source
+            // Replace the salesData with the new data
+            salesData = [
+                { date: '2023-05-23', product: 'Product D', quantity: 6, price: 20 },
+                { date: '2023-05-24', product: 'Product E', quantity: 2, price: 8 },
+                { date: '2023-05-25', product: 'Product F', quantity: 10, price: 15 }
+            ];
+
+            // Display the updated sales data
+            displaySalesData();
+        }
+
+        // Call the function to display sales data on page load
+        displaySalesData();
+    </script>
+
+</body>
+
+</html>

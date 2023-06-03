@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager</title>
+    <link rel="stylesheet" type="text/css" href="ViewStock.css">
+</head>
+
+<!-- Navigation Bar -->
+
+<body>
+    <header>
+        <div class="main">
+            <img class="logo" src="logoRe.png" alt="logo">
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="ManageStock.html">Manage Stock</a></li>
+                    <li><a href="ViewStock.html">View Stock</a></li>
+                </ul>
+            </nav>
+        </div>
+        <nav>
+            <li class="dropdown">
+                <a class="nav-link">Account</a>
+                <ul class="dropdown-content">
+                    <li><a href="ManagerProfile.html">Edit Information</a></li>
+                    <li><a href="StartPage.html">Sign Out</a></li>
+                </ul>
+            </li>
+            <!-- <a href="CustomerProfile.html"><img class="profilePic" src="profileImg.png" alt="profileImg"></a> -->
+        </nav>
+    </header>
+
+    <!-- CONTENT START HERE -->
+
+    <div class="top-content">
+        <h2>View Stock Report</h2>
+        <button onclick="refreshStockReport()">Refresh</button>
+    </div>
+    <div class="table">
+        <table id="stockTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+<!--     footer 
+    <footer class="footer">
+        <p><b>&copy; Mini Cooperation 2023</b></p>
+    </footer>-->
+    
+    <script>
+        // Sample data (replace with your own data)
+        var stockData = [
+            { id: '1', name: 'Product A', quantity: 10 },
+            { id: '2', name: 'Product B', quantity: 5 },
+            { id: '3', name: 'Product C', quantity: 8 }
+        ];
+
+        // Display stock data in the table
+        function displayStockData() {
+            var stockTable = document.getElementById('stockTable');
+            var tbody = stockTable.getElementsByTagName('tbody')[0];
+            tbody.innerHTML = '';
+
+            stockData.forEach(function (item) {
+                var row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.id}</td>
+                    <td>${item.name}</td>
+                    <td>${item.quantity}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Refresh stock report
+        function refreshStockReport() {
+            // Make an API call or retrieve new data from a data source
+            // Replace the stockData with the new data
+            stockData = [
+                { id: '1', name: 'Product A', quantity: 15 },
+                { id: '2', name: 'Product B', quantity: 7 },
+                { id: '3', name: 'Product C', quantity: 12 },
+                { id: '4', name: 'Product D', quantity: 3 },
+                { id: '5', name: 'Product E', quantity: 9 }
+            ];
+
+            // Display the updated stock data
+            displayStockData();
+        }
+
+        // Call the function to display stock data on page load
+        displayStockData();
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,256 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 24 May 2023, 3:20:26 pm
+    Author     : FarisHarr
+*/
+
+/* NavBar */
+body {
+    background-color: aliceblue;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: auto;
+    height: 65px;
+    background-color: #24252a;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+nav.pic {
+    text-align: right;
+}
+
+* {
+    margin: 0;
+}
+
+ul.nav_links {
+    padding: 0px;
+}
+
+li,
+a,
+button {
+    font-weight: 300;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+.logo {
+    height: 70px;
+    width: 70px;
+}
+
+.profilePic {
+    cursor: pointer;
+    height: 40px;
+    width: 60px;
+}
+
+.nav_links {
+    list-style: none;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: #0088a9;
+}
+
+
+.dropdown {
+    position: relative;
+    list-style: none;
+
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 10px;
+    margin-right: 80px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.nav-link :hover{
+    color: #0088a9;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    list-style: none;
+    background-color: #24252a;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #0088a9;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content li {
+    margin-bottom: 5px;
+}
+
+
+.dropdown-content a {
+    display: block;
+    padding: 5px 0;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.dropdown-content a:hover {
+    border-radius: 10px;
+    color: #0088a9;
+    background-color: #24252a;
+}
+  
+
+/* page */
+/* search box */
+.boxContainer_1 {
+    margin: 10px;
+    position: relative;
+    width: 40%;
+    height: 30px;
+    border: 2px solid #000000;
+    padding: 8px 16px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.boxContainer_2 {
+    float: right;
+    margin-top: 20px;
+    position: relative;
+    height: 55px;
+    width: 1%;
+}
+
+.elementContainer {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.search {
+    border: none;
+    height: 10%;
+    width: 500px;
+    margin-bottom: 30px;
+    border-radius: 50px;
+    font-size: 15px;
+    color: black;
+    font-weight: 500;
+    background-color: aliceblue;
+
+}
+
+.search:focus {
+    outline: none;
+}
+
+
+span.material-icons {
+    font-family: "Material Icons";
+    font-size: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    color: #000000;
+
+}
+/* slide */
+img {
+    vertical-align: middle;
+}
+.mySlides {
+    display: none;
+}
+.slidePic {
+    box-sizing: border-box;
+    background-color: #24252a;
+}
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+/*caption text*/
+.text{
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/*number text (1/3 etc)*/
+.numbertext{
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active{
+    background-color: #717171;
+}
+
+/*fading animation*/
+.fade{
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade{
+    from{opacity: .4}
+    to{opacity: 1}
+}
+
+@keyframes fade{
+    from{opacity: .4}
+    to{opacity: 1}
+}
+
+/*on smaller screens, decrease text size*/
+@media only screen and (max-width: 300px){
+    .text{font-size: 11px}
+}

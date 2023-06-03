@@ -1,0 +1,326 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 24 May 2023, 3:25:14 pm
+    Author     : FarisHarr
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+/* NavBar */
+body {
+    background-color: aliceblue;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: auto;
+    height: 65px;
+    background-color: #24252a;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+nav.pic {
+    text-align: right;
+}
+
+* {
+    margin: 0;
+}
+
+ul.nav_links {
+    padding: 0px;
+}
+
+li,
+a,
+button {
+    font-weight: 300;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+.logo {
+    height: 70px;
+    width: 70px;
+}
+
+.profilePic {
+    cursor: pointer;
+    height: 40px;
+    width: 60px;
+}
+
+.nav_links {
+    list-style: none;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: #0088a9;
+}
+
+
+.dropdown {
+    position: relative;
+    list-style: none;
+
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 10px;
+    margin-right: 80px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.nav-link :hover{
+    color: #0088a9;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    list-style: none;
+    background-color: #24252a;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #0088a9;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content li {
+    margin-bottom: 5px;
+}
+
+
+.dropdown-content a {
+    display: block;
+    padding: 5px 0;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.dropdown-content a:hover {
+    border-radius: 10px;
+    color: #0088a9;
+    background-color: #24252a;
+}
+/* Page */
+
+@import url('https://fonts.googleapis.com/css?family=Mukta+Mahee:200,400');
+
+* {
+    box-sizing: border-box;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 900px;
+    margin: 30px;
+    display: grid;
+    padding: 25px;
+    background-color: #fff;
+    box-shadow: 15px 15px 20px black;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+
+#contactForm {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-areas:
+        'name'
+        'email'
+        'company'
+        'phone'
+        'message';
+}
+
+.required-field {
+    grid-column: 1 / 2;
+}
+
+.submit-button {
+    grid-column: 2 / 3;
+}
+
+.name-field {
+    grid-area: name;
+    grid-column: 1 / 3;
+}
+
+.email-field {
+    grid-area: email;
+    grid-column: 1 / 3;
+}
+
+.company-field {
+    grid-area: company;
+    grid-column: 1 / 3;
+}
+
+.phone-field {
+    grid-area: phone;
+    grid-column: 1 / 3;
+}
+
+.message-field {
+    grid-area: message;
+    grid-column: 1 / 3;
+}
+
+/* FORM STYLES */
+
+.contact-us {
+    margin: 0 0 30px;
+    font-weight: 400;
+    font-size: 20px;
+    color: #0088a9;
+}
+
+.contact form {
+    border: 0;
+}
+
+.contact form label {
+    display: block;
+}
+
+.contact form p {
+    margin: 0;
+    font-weight: 200;
+    font-size: 15px;
+    color: rgba(74, 86, 96, 1);
+}
+
+.contact form input,
+.contact form textarea {
+    font-weight: 200;
+    font-size: 14px;
+    width: 100%;
+    padding: .4em .8em;
+    background: rgba(186, 186, 186, 0.293);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2.5px;
+    outline-color: #0088a9;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0088a9;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+
+
+}
+
+.submit-button {
+    align-self: center;
+    justify-self: end;
+
+}
+
+.contact form button:hover,
+.contact form button:focus {
+    background: #49b0e7;
+    color: #fff;
+    outline: 0;
+    transition: background-color 0.3s ease-out;
+}
+
+.required-field {
+    font-weight: 200;
+    font-size: 10px;
+    color: rgba(74, 86, 96, 0.75);
+    align-self: center;
+    justify-self: start;
+}
+
+span {
+    color: #5dc3f2;
+}
+
+.alert {
+    margin-bottom: 1em;
+    padding: 10px;
+    background: #49b0e7;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    border-radius: 2.5px;
+    display: none;
+}
+
+/* LARGE SCREENS */
+
+@media (min-width: 500px) {
+    #contactForm {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            'name company'
+            'email phone'
+            'message message';
+    }
+
+    .name-field {
+        grid-area: name;
+        grid-column: 1 / 2;
+    }
+
+    .email-field {
+        grid-area: email;
+        grid-column: 1 / 2;
+    }
+
+    .company-field {
+        grid-area: company;
+        grid-column: 2 / 3;
+    }
+
+    .phone-field {
+        grid-area: phone;
+        grid-column: 2 / 3;
+    }
+
+    .message-field {
+        grid-area: message;
+        grid-column: 1 / 3;
+    }
+}

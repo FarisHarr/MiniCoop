@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- header -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff</title>
+    <link rel="stylesheet" type="text/css" href="ManageProduct.css">
+</head>
+
+<!-- Navigation Bar -->
+
+<body>
+    <header>
+        <div class="main">
+            <img class="logo" src="logoRe.png" alt="logo">
+            <nav>
+                <ul class="nav_links">
+                  <li><a href="ManagePayment.html">Manage Payment</a></li>
+                    <li><a href="ManageProduct.html">Manage Product</a></li>
+                </ul>
+            </nav>
+        </div>
+        <nav>
+            <li class="dropdown">
+                <a class="nav-link">Account</a>
+                <ul class="dropdown-content">
+                    <li><a href="StaffProfile.html">Edit Information</a></li>
+                    <li><a href="StartPage.html">Sign Out</a></li>
+                </ul>
+            </li>
+            <!-- <a href="CustomerProfile.html"><img class="profilePic" src="profileImg.png" alt="profileImg"></a> -->
+        </nav>
+    </header>
+<html>
+  <h1>Manage Product</h1>
+
+  <form>
+    <input type="text" name="productcode" placeholder="Product Code" required>
+    <input type="number" name="price" placeholder="Price" required>
+    <input type="submit" value="Add Product">
+  </form>
+
+  <table>
+    <tr>
+      <th>Product Name</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+    <tr>
+      <td>Luna Colour Pencil</td>
+      <td>RM 5.00</td>
+      <td>
+        <button>Edit</button>
+        <button>Delete</button>
+      </td>
+    </tr>
+    <tr>
+      <td>Buncho Water Colour</td>
+      <td>RM 13.50</td>
+      <td>
+        <button>Edit</button>
+        <button>Delete</button>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

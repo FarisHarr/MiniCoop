@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Supplier</title>
+  <link rel="stylesheet" type="text/css" href="ManageSupplier.css">
+</head>
+
+<!-- Navigation Bar -->
+
+<body>
+  <header>
+      <div class="main">
+          <img class="logo" src="logoRe.png" alt="logo">
+          <nav>
+              <ul class="nav_links">
+                <li><a href="ManagePayment.html">Manage Payment</a></li>
+                  <li><a href="ManageProduct.html">Manage Product</a></li>
+              </ul>
+          </nav>
+      </div>
+      <nav>
+          <li class="dropdown">
+              <a class="nav-link">Account</a>
+              <ul class="dropdown-content">
+                  <li><a href="StaffProfile.html">Edit Information</a></li>
+                  <li><a href="StartPage.html">Sign Out</a></li>
+              </ul>
+          </li>
+          <!-- <a href="CustomerProfile.html"><img class="profilePic" src="profileImg.png" alt="profileImg"></a> -->
+      </nav>
+  </header>
+
+  <body>
+    <h1>Manage Supplier</h1>
+
+    <form>
+      <h2>Add Supplier</h2>
+      <label for="supplier-name">Supplier Name:</label>
+      <input type="text" id="supplier-name" name="supplier-name" required>
+
+      <!-- Add more input fields for supplier details (e.g., address, contact info, etc.) -->
+
+      <button type="submit">Add Supplier</button>
+    </form>
+
+    <h2>Existing Suppliers</h2>
+    <table>
+      <tr>
+        <th>Supplier Name</th>
+        <!-- Add more table headers for supplier details -->
+      </tr>
+      <tr>
+        <td>Supplier 1</td>
+        <!-- Add more table cells with supplier details -->
+      </tr>
+      <tr>
+        <td>Supplier 2</td>
+        <!-- Add more table cells with supplier details -->
+      </tr>
+      <!-- Add more table rows for each supplier -->
+    </table>
+
+    <!-- Add additional sections, buttons, or functionality as needed -->
+
+  </body>
+
+  </html>

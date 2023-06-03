@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff</title>
+    <link rel="stylesheet" type="text/css" href="ManagePayment.css">
+</head>
+<!-- Navigation Bar -->
+
+<body>
+  <header>
+      <div class="main">
+          <img class="logo" src="logoRe.png" alt="logo">
+          <nav>
+              <ul class="nav_links">
+                <li><a href="ManagePayment.html">Manage Payment</a></li>
+                  <li><a href="ManageProduct.html">Manage Product</a></li>
+              </ul>
+          </nav>
+      </div>
+      <nav>
+          <li class="dropdown">
+              <a class="nav-link">Account</a>
+              <ul class="dropdown-content">
+                  <li><a href="ManagerProfile.html">Edit Information</a></li>
+                  <li><a href="StartPage.html">Sign Out</a></li>
+              </ul>
+          </li>
+          <!-- <a href="CustomerProfile.html"><img class="profilePic" src="profileImg.png" alt="profileImg"></a> -->
+      </nav>
+  </header>
+
+  <div class="form-group" style="padding-top:  50px;">
+    <label for="receiptNumber">Receipt Number</label>
+    <input type="text" id="receiptNumber" required>
+    <button onclick="checkPayment()">Check Payment</button>
+  </div>
+
+  <div class="payment-history-section">
+    <h3>Payment History</h3>
+    <table>
+      <tr>
+        <th>Customer Name</th>
+        <th>Amount</th>
+        <th>Payment Method</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td>12699</td>
+        <td>RM 18.50</td>
+        <td>Account Transfer</td>
+        <td>Buyed</td>
+      </tr>
+      <tr>
+        <td>09777</td>
+        <td>RM 9.90</td>
+        <td>Qr Number</td>
+        <td>Buyed</td>
+      </tr>
+      <!-- Add more table rows for payment history -->
+    </table>
+  </div>
+
+
+  <!--content-->
+  <script>
+    function checkPayment() {
+      const receiptNumber = document.getElementById('receiptNumber').value;
+
+      //payment history
+      const paymentData = [
+        { receipt: '12699', date: '2023-05-20', amount: 'RM 18.50', Status:'Buyed' },
+        { receipt: '09777', date: '2023-05-18', amount: 'RM 9.90', Status:'Buyed' },
+      ];
+
+      const paymentList = document.getElementById('paymentList');
+
+      // Clear previous payment history
+      paymentList.innerHTML = '';
+
+      // Find matching payments
+      const matchingPayments = paymentData.filter(payment => payment.receipt === receiptNumber);
+
+      if (matchingPayments.length > 0) {
+        // Display payment history
+        matchingPayments.forEach(payment => {
+          const listItem = document.createElement('li');
+          listItem.textContent = `Receipt: ${payment.receipt} | Date: ${payment.date} | Amount: ${payment.amount}`;
+          paymentList.appendChild(listItem);
+        });
+
+        // Show the payment history section
+        document.getElementById('paymentHistory').style.display = 'block';
+      } else {
+        // Hide the payment history section
+        document.getElementById('paymentHistory').style.display = 'none';
+        alert('No payment history found for the provided receipt number.');
+      }
+    }
+  </script>
+</body>
+
+</html>

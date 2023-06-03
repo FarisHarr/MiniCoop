@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- header -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" type="text/css" href="Payment.css">
+</head>
+
+<!-- Navigation Bar -->
+<body>
+    <header>
+        <div class="main">
+            <img class="logo" src="logoRe.png" alt="logo">
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="HomePage.html">Home</a></li>
+                    <li><a href="ProductPage.html">Product</a></li>
+                    <li><a href="ManageContactUs.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+        <nav>
+            <li class="dropdown">
+                <a class="nav-link">Account</a>
+                <ul class="dropdown-content">
+                    <li><a href="CustomerProfile.html">Edit Information</a></li>
+                    <li><a href="StartPage.html">Sign Out</a></li>
+                </ul>
+            </li>
+            <!-- <a href="CustomerProfile.html"><img class="profilePic" src="profileImg.png" alt="profileImg"></a> -->
+        </nav>
+    </header>
+
+    <!-- content -->
+    <h1>Payment</h1><br>
+
+    <div class='container'>
+        <div class='window'>
+            <div class='order-info'>
+                <div class='order-info-content'>
+                    <h2>Order Summary</h2>
+                    <div class='line'></div>
+                    <table class='order-table'>
+                        <tbody>
+                            <tr>
+                                <td><img src='Lunacolour.jpg' class='full-width'></img>
+                                </td>
+                                <td>
+                                    <br> <span class='thin'>Luna Colour Pencil(C1099)</span>
+                                    <br><br> <span class='thin small'> A lot of colour varation and suitable for kids <br><br></span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class='price'>RM5.00</div>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                    <div class='line'></div>
+                    <table class='order-table'>
+                        <tbody>
+                            <tr>
+                                <td><img src='Bunchowater.png' class='full-width'></img>
+                                </td>
+                                <td>
+                                    <br> <span class='thin'>Buncho Water Colour(C0688)</span>
+                                    <br><br> <span class='thin small'> Water colour for beginner!</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                  <br>
+                                    <div class='price'>RM13.50</div>
+                                </td>
+                            </tr>
+                    </table>
+                    <div class='line'></div>
+                    <div class='total'>
+                        <span style='float:left;'>
+                          <br>
+                          <br>
+                            <div class='thin dense'>Item Subtotal</div>
+                            <div class='thin dense'>Tax</div>
+                            TOTAL
+                        </span>
+                        <span style='float:right; text-align:right;'>
+                          <br>
+                          <br>
+                            <div class='thin dense'>RM 18.50</div>
+                            <div class='thin dense'>RM 0.06</div>
+                            RM 18.56
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class='payment'>
+                <div class='payment-content'>
+                    <div class='half-input-table'>
+                        <p>ONLINE TRANSFER</p>
+                        <img src="accountNumber.jpg" width="1000" height="1000">
+                        <p>QR CODE</p>
+                        <img src="QrcodE.jpg" alt="QrCode">
+                    </div>
+
+                    <br>
+                    Please submit your receipt here:
+                    <input type="file" class='input-field'>
+                    <a href="Success.html" type="button" class='pay-btn'>Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+</body>
+
+</html>

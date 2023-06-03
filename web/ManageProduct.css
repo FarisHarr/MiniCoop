@@ -1,0 +1,227 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 24 May 2023, 3:47:57 pm
+    Author     : FarisHarr
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+/* NavBar */
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: auto;
+    height: 65px;
+    background-color: #24252a;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+nav.pic {
+    text-align: right;
+}
+
+* {
+    margin: 0;
+}
+
+ul.nav_links {
+    padding: 0px;
+}
+
+li,
+a,
+button {
+    font-weight: 300;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+.logo {
+    height: 70px;
+    width: 70px;
+}
+
+.profilePic {
+    cursor: pointer;
+    height: 40px;
+    width: 60px;
+}
+
+.nav_links {
+    list-style: none;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: #0088a9;
+}
+
+
+.dropdown {
+    position: relative;
+    list-style: none;
+
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 10px;
+    margin-right: 80px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.nav-link :hover{
+    color: #0088a9;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    list-style: none;
+    background-color: #24252a;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #0088a9;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content li {
+    margin-bottom: 5px;
+}
+
+
+.dropdown-content a {
+    display: block;
+    padding: 5px 0;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.dropdown-content a:hover {
+    border-radius: 10px;
+    color: #0088a9;
+    background-color: #24252a;
+}
+
+/* MODAL START HERE - The Modal (background) */
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.cancel-button {
+    background-color: #ccc;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.delete-button-modal:hover {
+    background-color: #d32f2f;
+}
+
+.cancel-button-modal:hover {
+    background-color: #bbb;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"], input[type="number"] {
+    padding: 5px;
+    width: 200px;
+  }
+  
+  input[type="submit"] {
+    padding: 5px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }

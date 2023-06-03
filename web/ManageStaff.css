@@ -1,0 +1,436 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 24 May 2023, 3:48:59 pm
+    Author     : FarisHarr
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+/* NavBar */
+body {
+    background-color: aliceblue;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: auto;
+    height: 65px;
+    background-color: #24252a;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+nav.pic {
+    text-align: right;
+}
+
+* {
+    margin: 0;
+}
+
+ul.nav_links {
+    padding: 0px;
+}
+
+li,
+a,
+button {
+    font-weight: 300;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+.logo {
+    height: 70px;
+    width: 70px;
+}
+
+.profilePic {
+    cursor: pointer;
+    height: 40px;
+    width: 60px;
+}
+
+.nav_links {
+    list-style: none;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: #0088a9;
+}
+
+
+.dropdown {
+    position: relative;
+    list-style: none;
+
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 10px;
+    margin-right: 80px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.nav-link :hover{
+    color: #0088a9;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    list-style: none;
+    background-color: #24252a;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #0088a9;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content li {
+    margin-bottom: 5px;
+}
+
+
+.dropdown-content a {
+    display: block;
+    padding: 5px 0;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.dropdown-content a:hover {
+    border-radius: 10px;
+    color: #0088a9;
+    background-color: #24252a;
+}
+
+/* CONTENT START */
+.top-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: aliceblue;
+}
+
+.top-content h1 {
+    margin: 0;
+}
+
+.top-content input[type="text"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    width: 200px;
+}
+
+.register-product-button {
+    width: 150px;
+    height: 35px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header input[type="text"],
+    header button {
+        margin-top: 10px;
+        width: 100%;
+    }
+}
+
+.search-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar input[type="search"] {
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 16px;
+    width: 200px;
+}
+
+.search-bar button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #555;
+}
+
+.search-bar img {
+    width: 20px;
+}
+
+.search-bar i {
+    font-size: 16px;
+}
+
+.nav-links li:hover {
+    background-color: #EDC8B8;
+    border-radius: 30px;
+    transform: scale(1.02);
+}
+
+/* Register Product Button Styles */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 3px solid #24252a;
+    width: 40%;
+}
+
+.popup-content label {
+    display: inline-block;
+    width: 250px;
+}
+
+
+input[type="text" ] {
+    padding: 1px 2px;
+    border-radius: 5px;
+}
+
+input.submit {
+    display: flex;
+    justify-content: center;
+    width: 80px;
+    height: 25px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #24252a;
+    background-color: #4CAF50;
+    cursor: pointer;
+}
+
+input.submit :hover {
+    background-color: #f72b2b;
+}
+
+select {
+    border-radius: 5px;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* TOP CONTENT END */
+/* Table Styles */
+
+div.table {
+    background-color: white;
+}
+
+#table img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.table {
+    display: grid;
+    place-items: center;
+    margin: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+
+th {
+    text-align: left;
+    background-color: #f2f2f2;
+}
+
+td,
+th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+input[type=number] {
+    width: 70px;
+}
+
+#table th,
+#table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#table button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+#table img {
+    width: 20px;
+    height: 20px;
+}
+
+#table th,
+#table td {
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+
+    #table th:nth-child(n+6),
+    #table td:nth-child(n+6) {
+        display: none;
+    }
+}
+
+
+
+/* MODAL START HERE - The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.delete-button {
+    background-color: rgb(0, 213, 255);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* .delete-button :hover{
+    background-color: #24252a;
+    color: white;
+} */
+
+.cancel-button {
+    background-color: #ccc;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.cancel-button-modal:hover {
+    background-color: #bbb;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #24252a;
+    padding: 30px;
+    text-align: center;
+}
+
+.footer p {
+    color: #f2f2f2;
+    margin: 5px 0;
+}

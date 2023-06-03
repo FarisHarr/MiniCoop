@@ -1,0 +1,106 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 26 May 2023, 11:12:29 am
+    Author     : FarisHarr
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #DDE6ED;
+    
+}
+
+/* container */
+.container {
+    display: flex;
+    height: 500px;
+    width: 800px;
+    /* border: 1px solid black; */
+    margin: auto;
+    margin-top: 50px;
+    box-shadow: 15px 15px 20px black;
+}
+/* login form */
+.form {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    background-color: grey;
+}
+.form h2 {
+    font-size: 3rem;
+    margin-top: 40px;
+}
+
+.form h4{
+
+    margin-bottom: 40px;
+}
+.box {
+    padding: 12px;
+    width: 65%;
+    margin: 15px;
+    border: 1px solid black;
+    outline: none;
+    border-radius: 20px;
+}
+#submit {
+    padding: 12px 50px;
+    width: 40%;
+    margin-top: 40px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+}
+#submit:hover {
+    cursor: pointer;
+    background-color: #0088a9;
+}
+.form a {
+    text-decoration: none;
+    color: black;
+    margin-top: 20px;
+}
+.form a:hover {
+    color: white;
+}
+.clickBtn {
+    text-decoration: none;
+    color: black;
+    margin-top: 20px;
+}
+.clickBtn:hover {
+    color: white;
+}
+
+/* right side */
+.side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background-color: #24252a;
+}
+.side img {
+    width: 100%;
+    height: 100%;
+}
+/* radio */
+.radio-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
