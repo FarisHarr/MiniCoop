@@ -45,7 +45,7 @@
             myConnection.close();
             
             if (result > 0) {
-                response.sendRedirect("LoginStaff.html"); // Redirect to login page
+                response.sendRedirect("ManageStaff.jsp"); // Redirect to login page
             } else {
                 out.println("Registration failed. Please try again."); // Display error message
             }
