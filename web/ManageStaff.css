@@ -47,7 +47,7 @@ a,
 button {
     font-weight: 300;
     font-size: 16px;
-    color: #edf0f1;
+    color: #0088a9;
     text-decoration: none;
 }
 
@@ -232,7 +232,7 @@ button {
 
 .popup-content {
     background-color: #fefefe;
-    margin: 10% auto;
+    margin: 8% auto;
     padding: 20px;
     border: 3px solid #24252a;
     width: 40%;
@@ -376,7 +376,7 @@ input[type=number] {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 10% auto;
+    margin: 9% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 50%;

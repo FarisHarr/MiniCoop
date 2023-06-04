@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" href="ManageStaff.css">
     </head>
 
+    <!--Navigation Bar-->
     <body>
         <header>
             <div class="main">
@@ -33,6 +34,7 @@
             </nav>
         </header>
 
+        <!--Page-->
         <div class="top-content">
             <h2>Manage Staff</h2>
             <div class="search-container">
@@ -46,6 +48,7 @@
             <button class="register-product-button" onclick="showPopup()">Register Staff</button>
         </div>
 
+        <!--Popup Register-->
         <div class="popup" id="popup">
             <div class="popup-content">
                 <span class="close" onclick="hidePopup()">&times;</span>
@@ -53,7 +56,7 @@
                 <br><br>
                 <form action="RegisterStaff.jsp" method="POST">
                     <label for="email">Email :</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="text" id="email" name="email" required>
                     <br><br>
                     <label for="password">Password :</label>
                     <input type="text" id="password" name="password" required>
@@ -76,6 +79,7 @@
             </div>
         </div>
 
+        <!--Table-->
         <div class="table">
             <table id="table">
                 <thead>
@@ -110,8 +114,14 @@
                                 out.println("<td>" + email + "</td>");
                                 out.println("<td>" + phone + "</td>");
                                 out.println("<td>" + role + "</td>");
-                                out.println("<td><a href='EditStaff.jsp?id=" + staffID + "'>Edit</a></td>");
-                                out.println("<td><a href='DeleteStaff.jsp?id=" + staffID + "'>Delete</a></td>");
+                                out.println("<td>");
+                                out.println("<a style=\"color:green;\" href=\"EditStaff.jsp?id=" + staffID + "\">"
+                                        + "<img src=\"editicon.png\" alt=\"edit\"></a>");
+                                out.println("</td>");
+                                out.println("<td>");
+                                out.println("<a style=\"color:red;\" href=\"DeleteStaff.jsp?id=" + staffID + "\">"
+                                        + "<img src=\"deleteicon.png\" alt=\"delete\"></a>");
+                                out.println("</td>");
                                 out.println("</tr>");
                             }
 
