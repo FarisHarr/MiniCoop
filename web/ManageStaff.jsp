@@ -31,6 +31,7 @@
                         <li><a href="StartPage.html">Sign Out</a></li>
                     </ul>
                 </li>
+                <!-- <a href="CustomerProfile.html"><img class="profilePic" src="profileImg.png" alt="profileImg"></a> -->
             </nav>
         </header>
 
@@ -133,7 +134,7 @@
                 </tbody>
             </table>
         </div>
-                
+
         <!-- The Modal to delete -->
         <div id="myModal" class="modal">
             <div class="modal-content">

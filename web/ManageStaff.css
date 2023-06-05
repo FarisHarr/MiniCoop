@@ -42,9 +42,7 @@ ul.nav_links {
     padding: 0px;
 }
 
-li,
-a,
-button {
+li, a, button {
     font-weight: 300;
     font-size: 16px;
     color: #0088a9;
@@ -72,6 +70,7 @@ button {
 }
 
 .nav_links li a {
+    color: #edf0f1;
     transition: all 0.3s ease 0s;
 }
 
