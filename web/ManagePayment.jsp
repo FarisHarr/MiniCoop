@@ -46,9 +46,11 @@
         </header>
 
         <div class="form-group" style="padding-top:  50px;">
+            <form id="form" method="post" action="ManagePayment.jsp">
             <label for="receiptNumber">Receipt Number</label>
             <input type="text" id="receiptNumber" required>
             <button onclick="checkPayment()">Check Payment</button>
+            </form>
         </div>
 
         <div class="payment-history-section">
