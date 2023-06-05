@@ -33,13 +33,7 @@
                 <input type="password" name="password" class="box" placeholder="Enter Password" required >
                 <input type="submit" value="LOG IN" id="submit">
                 <br>
-                <a href="ForgotPassword.html">Forgot Password?</a>
-                <br>
-                <p>Don't have an account? <a href="Register.html">Register Here</a></p>
-            </form>
-        </div>
-
-        <%
+                <%
             String email = request.getParameter("email");
             String password = request.getParameter("password");
 
@@ -70,6 +64,14 @@
                 }
             }
         %>
+        
+        <a href="ForgotPassword.html">Forgot Password?</a>
+                <br>
+                <p>Don't have an account? <a href="Register.html">Register Here</a></p>
+                <br>
+            </form>
+        </div>
+
     </body>
 </html>
 

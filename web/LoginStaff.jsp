@@ -4,6 +4,8 @@
     Author     : FarisHarr
 --%>
 
+<%@ page language="java" %>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,22 +20,65 @@
             <div class="side">
                 <img src="logoRe.png" alt="">
             </div>
-            <form action="LoginServlet" class="form" method="post">
+            <form action="" class="form" method="POST">
                 <h2>LOG IN</h2>
-                <h4>For Employee</h4>
+                <h4>For Employee </h4>
                 <div class="radio-group">
                     <input type="radio" id="staff" name="user-type" value="staff">
                     <label for="staff">Staff</label>
-                    <input type="radio" id="manager" name="user-type" value="manager">
-                    <label for="manager">Manager</label>
                     <input type="radio" id="owner" name="user-type" value="owner">
                     <label for="owner">Owner</label>
                 </div>
                 <input type="text" id="email" name="email" class="box" placeholder="Enter Email">
                 <input type="password" id="password" name="password" class="box" placeholder="Enter Password">
-                <button type="submit" id="submit">LOGIN</button
+                <input type="submit" class="login" value="LOGIN">
+                <br>
+                
+                 <%-- Java code to handle form submission --%>
+        <%
+            if (request.getMethod().equals("POST")) {
+                String email = request.getParameter("email");
+                String password = request.getParameter("password");
+                String userType = request.getParameter("user-type");
+
+                if (email != null && password != null && userType != null) {
+                    try {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        String myURL = "jdbc:mysql://localhost/minicoop";
+                        Connection myConnection = DriverManager.getConnection(myURL, "root", "admin");
+
+                        String sSelectQry = "SELECT * FROM staff WHERE email = ? AND password = ? AND role = ?";
+                        PreparedStatement myPS = myConnection.prepareStatement(sSelectQry);
+                        myPS.setString(1, email);
+                        myPS.setString(2, password);
+                        myPS.setString(3, userType);
+                        ResultSet resultSet = myPS.executeQuery();
+
+                        if (resultSet.next()) {
+                            if (userType.equals("staff")) {
+                                // Redirect to staff page
+                                response.sendRedirect("ManagePayment.jsp");
+                            } else if (userType.equals("owner")) {
+                                // Redirect to owner page
+                                response.sendRedirect("ManageStaff.jsp");
+                            }
+                        } else {
+                            // User not found, display error message
+                            out.println("Invalid email or password. Please try again.");
+                        }
+
+                        myConnection.close();
+                    } catch (ClassNotFoundException | SQLException e) {
+                        e.printStackTrace();
+                        out.println("An error occurred. Please try again later.");
+                    }
+                }
+            }
+        %>
             </form>
         </div>
+     
     </body>
 </html>
+
 
