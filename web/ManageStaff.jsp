@@ -115,11 +115,11 @@
                                 out.println("<td>" + phone + "</td>");
                                 out.println("<td>" + role + "</td>");
                                 out.println("<td>");
-                                out.println("<a style=\"color:green;\" href=\"EditStaff.jsp?id=" + staffID + "\">"
+                                out.println("<a href=\"EditStaff.jsp?id=" + staffID + "\">"
                                         + "<img src=\"editicon.png\" alt=\"edit\"></a>");
                                 out.println("</td>");
                                 out.println("<td>");
-                                out.println("<a style=\"color:red;\" href=\"DeleteStaff.jsp?id=" + staffID + "\">"
+                                out.println("<a href=\"DeleteStaff.jsp?id=" + staffID + "\">"
                                         + "<img src=\"deleteicon.png\" alt=\"delete\"></a>");
                                 out.println("</td>");
                                 out.println("</tr>");
@@ -133,6 +133,16 @@
                 </tbody>
             </table>
         </div>
+                
+        <!-- The Modal to delete -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close"></span>
+                <p>Are you sure you want to delete this product?</p>
+                <button href=\"DeleteStaff.jsp?id="delete" class="delete-button">Delete</button>
+                <button id="cancel" class="cancel-button">Cancel</button>
+            </div>
+        </div>
 
         <script>
             function showPopup() {
@@ -141,6 +151,33 @@
 
             function hidePopup() {
                 document.getElementById("popup").style.display = "none";
+            }
+
+            function openModal() {
+                var modal = document.getElementById("myModal");
+                var span = document.getElementsByClassName("close")[0];
+                modal.style.display = "block";
+                span.onclick = function () {
+                    modal.style.display = "none";
+                };
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+                ;
+
+                // Get the reference to the delete button's parent table row
+                var deleteButton = document.getElementById("deleteButton");
+                var tableRow = deleteButton.closest("tr");
+
+                // Add event listener to the delete button inside the modal
+                var modalDeleteButton = document.getElementById("delete");
+                modalDeleteButton.addEventListener("click", function () {
+                    // Call the deleteRow() function passing the table row reference
+                    deleteRow(tableRow);
+                    modal.style.display = "none";
+                });
             }
         </script>
     </body>
