@@ -1,3 +1,9 @@
+<%-- 
+    Document   : ManageStaff
+    Created on : 5 Jun 2023, 5:08:29 pm
+    Author     : FarisHarr
+--%>
+
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.sql.*" %>
 
 <!DOCTYPE html>
