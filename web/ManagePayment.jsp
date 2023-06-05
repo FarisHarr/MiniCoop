@@ -25,7 +25,7 @@
                 <img class="logo" src="logoRe.png" alt="logo">
                 <nav>
                     <ul class="nav_links">
-                        <li><a href="ManagePayment.html">Manage Payment</a></li>
+                        <li><a href="ManagePayment.jsp ">Manage Payment</a></li>
                         <li><a href="ManageProduct.html">Manage Product</a></li>
                     </ul>
                 </nav>
