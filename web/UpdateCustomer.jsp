@@ -18,7 +18,7 @@
 
         <% 
             String customerID = request.getParameter("id");
-            String name = request.getParameter("username");
+            String customerName = request.getParameter("name");
             String email = request.getParameter("email");
             String phone = request.getParameter("phone");
 
@@ -26,7 +26,7 @@
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
                 Statement st = con.createStatement();
-                int rowsUpdated = st.executeUpdate("UPDATE customer SET username = '" + name + "', email = '" + email + "', phone = '" + phone + "' WHERE id ='" + customerID + "'");
+                int rowsUpdated = st.executeUpdate("UPDATE customer SET name = '" + customerName + "', email = '" + email + "', phone = '" + phone + "' WHERE id ='" + customerID + "'");
 
                 if (rowsUpdated > 0) {
                     out.println("Customer updated successfully.");
@@ -40,8 +40,7 @@
             }
         %>
 
-        <%-- Forward to CustomerProfile.jsp or any other appropriate page --%>
-        <%-- Replace "CustomerProfile.jsp" with the desired destination page --%>
+        <%-- Forward to CustomerProfile.jsp  --%>
         <%
             String contextPath = request.getContextPath();
             response.sendRedirect(contextPath + "/CustomerProfile.jsp");

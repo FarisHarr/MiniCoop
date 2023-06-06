@@ -45,72 +45,70 @@
             </nav>
         </header>
 
+        <%
+//            HttpSession loginsession = request.getSession();
+            String customerID = (String) session.getAttribute("customerID");
+
+            if (customerID != null) {
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
+                    PreparedStatement ps = con.prepareStatement("SELECT * FROM customer WHERE id = ? ");
+                    ps.setString(1, customerID);
+                    ResultSet rs = ps.executeQuery();
+
+                    if (rs.next()) {
+                        String email = rs.getString("email");
+                        String customerName = rs.getString("name");
+                        String phone = rs.getString("phone");
+        %>
         <!-- Page -->
         <div class="container">
             <div class="profile-left">
                 <img src="profilePic.png" alt="profile picture" class="profile-picture">
                 <br>
-                <p>Aliff Najmi</p>
             </div>
             <div class="profile-right">
                 <div class="title">
                     <h2>CUSTOMER PROFILE</h2>
                 </div>
                 <div class="profile-details">
-                    <label class="profile-label">Name : </label>
-                    <input type="text" id="usernamename" class="box">
+                    <label for="Name">Name:</label>
+                    <input type="text" name="name" value="<%= customerName%>" class="box">
                 </div>
                 <div class="profile-details">
-                    <label class="profile-label">Email:</label>
-                    <input type="text" id="email" class="box">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" value="<%= email%>" class="box">
                 </div>
                 <div class="profile-details">
-                    <label class="profile-label">Phone Number:</label>
-                    <input type="text" id="phone" class="box">
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" name="phone" value="<%= phone%>" class="box">
                 </div>
-                <a href="EditCustomer.jsp?id=<%= request.getParameter("id")%>">
+                <a href="EditCustomer.jsp?id=<%= customerID%>">
                     <button class="profile-update-button">Update</button>
                 </a>
-
             </div>
         </div>
 
-        <script>
-            <%-- Fetch customer information from the database --%>
-            <%@ page import="java.util.*" %>
-            <%@ page import="com.mysql.jdbc.*" %>
-            <%@ page import="java.sql.*" %>
-            <%-- Fetch customer information from the database --%>
-            <%
-                String customerID = "1"; // Assuming the customer ID is hardcoded for now, replace it with appropriate logic
-                try {
-                    Class.forName("com.mysql.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
-                    Statement st = con.createStatement();
-                    ResultSet rs = st.executeQuery("SELECT * FROM customer WHERE id ='" + customerID + "'");
-
-                    if (rs.next()) {
-                        String customerName = rs.getString("name");
-                        String email = rs.getString("email");
-                        String address = rs.getString("address");
-                        String phone = rs.getString("phone");
-            %>
-            document.getElementById("profile-name").value = "<%= customerName%>";
-            document.getElementById("profile-email").value = "<%= email%>";
-            document.getElementById("profile-address").value = "<%= address%>";
-            document.getElementById("profile-phone").value = "<%= phone%>";
-            <%
+        <%
                     } else {
                         out.println("Customer not found.");
                     }
 
                     rs.close();
-                    st.close();
+                    ps.close();
                     con.close();
                 } catch (Exception e) {
                     out.println("Error: " + e);
                 }
-            %>
-        </script>
+            } else {
+                // If the session doesn't exist or customerID is not set, redirect to the login page
+                response.sendRedirect("login.html");
+            }
+        %>
+
     </body>
 </html>
+
+
+

@@ -6,18 +6,23 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.sql.*" %>
+<%@ page import="com.mysql.jdbc.*" %>
 
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
         <meta charset="UTF-8">
-        <title>Edit Customer</title>
-        <link rel="stylesheet" type="text/css" href="CustomerProfile.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profile</title>
+        <link rel="stylesheet" type="text/css" href="ManageStaff.css">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     </head>
 
+    <!-- Navigation Bar -->
+
     <body>
-        <!-- Navigation Bar -->
         <header>
             <div class="main">
                 <img class="logo" src="logoRe.png" alt="logo">
@@ -37,58 +42,60 @@
                         <li><a href="StartPage.html">Sign Out</a></li>
                     </ul>
                 </li>
-                <!-- <a href="CustomerProfile.html"><img class="profilePic" src="profileImg.png" alt="profileImg"></a> -->
             </nav>
         </header>
+
         <%
-            String customerID = request.getParameter("id");
-            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
-            Statement stat = connect.createStatement();
-            ResultSet res = stat.executeQuery("SELECT * FROM customer WHERE id = '" + customerID + "'");
+            String customerID = (String) session.getAttribute("customerID");
 
-            if (res.next()) {
-                String customerName = res.getString("username");
-                String email = res.getString("email");
-                String phone = res.getString("phone");
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
+                PreparedStatement ps = con.prepareStatement("SELECT * FROM customer WHERE id = ? ");
+                ps.setString(1, customerID);
+                ResultSet rs = ps.executeQuery();
 
-                //        Edit Page
+                if (rs.next()) {
+                    String email = rs.getString("email");
+                    String customerName = rs.getString("name");
+                    String phone = rs.getString("phone");
         %>
         <!-- Page -->
-        <div class="container">
-            <div class="profile-left">
-                <img src="profilePic.png" alt="profile picture" class="profile-picture">
+        <div class="popup-content">
+            <form action="UpdateCustomer.jsp" method="post">
+                <h3>Update Staff</h3>
+                <input type="hidden" name="id" value="<%= customerID %>">
                 <br>
-                <p>Aliff Najmi</p>
-            </div>
-            <div class="profile-right">
-                <div class="title">
-                    <h2>CUSTOMER PROFILE</h2>
-                </div>
-                <form action="UpdateCustomer.jsp" method="post">
-                    <div class="profile-details">
-                        <label class="profile-label">Name:</label>
-                        <input type="text" name="username" class="box" value="<%= request.getParameter("username")%>">
-                    </div>
-                    <div class="profile-details">
-                        <label class="profile-label">Email:</label>
-                        <input type="text" name="email" class="box" value="<%= request.getParameter("email")%>">
-                    </div>
-                    <div class="profile-details">
-                        <label class="profile-label">Phone Number:</label>
-                        <input type="text" name="phone" class="box" value="<%= request.getParameter("phone")%>">
-                    </div>
-                    <button type="submit" class="profile-update-button">Update</button>
-                </form>
-            </div>
+                <label for="Name"> Name:</label>
+                <input type="text" name="name" value="<%= customerName%>"><br>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" name="email" value="<%= email%>"><br>
+                <br>
+                <label for="phone">Phone Number:</label>
+                <input type="text" name="phone" value="<%= phone%>"><br>
+                <br><br>
+                <input class="submit" type="submit" value="Update">
+            </form>
         </div>
-        <%
-            } else {
-                out.println("Customer not found.");
-            }
-            connect.close();
-        %>
-    </body>
 
+        <%
+                } else {
+                    out.println("Customer not found.");
+                }
+
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                out.println("Error: " + e);
+            }
+        %>
+
+
+    </body>
 </html>
 
 
