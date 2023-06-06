@@ -14,7 +14,6 @@
         <title>Edit Staff</title>
         <link rel="stylesheet" type="text/css" href="ManageStaff.css">
     </head>
-    <body>
         
         <!--Navigation Bar-->
     <body>

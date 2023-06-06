@@ -30,7 +30,7 @@
             String myURL = "jdbc:mysql://localhost/minicoop";
             Connection myConnection = DriverManager.getConnection(myURL, "root", "admin");
 
-            String sInsertQry = "INSERT INTO customer(username, email, password, phone) VALUES (?,?,?,?) ";
+            String sInsertQry = "INSERT INTO customer(name, email, password, phone) VALUES (?,?,?,?) ";
 
             PreparedStatement myPS = myConnection.prepareStatement(sInsertQry);
 
@@ -45,7 +45,7 @@
 
             if (result > 0) {
                 response.sendRedirect("Login.jsp"); // Redirect to login page
-                request.getRequestDispatcher("CustomerProfile.jsp");
+//                request.getRequestDispatcher("CustomerProfile.jsp");
             } else {
                 out.println("Registration failed. Please try again."); // Display error message
             }
