@@ -81,7 +81,9 @@
                         <option value="Owner">Owner</option>
                     </select>
                     <br><br>
+                    <div class="submit-button">
                     <input class="submit" type="submit" value="Save">
+                    </div>
                 </form>
             </div>
         </div>

@@ -31,7 +31,7 @@
                 <li class="dropdown">
                     <a class="nav-link">Account</a>
                     <ul class="dropdown-content">
-                        <li><a href="OwnerProfile.html">Edit Information</a></li>
+<!--                        <li><a href="OwnerProfile.html">Edit Information</a></li>-->
                         <li><a href="StartPage.html">Sign Out</a></li>
                     </ul>
                 </li>
@@ -75,8 +75,10 @@
                     <option value="Store Manager">Store Manager</option>
                     <option value="Owner">Owner</option>
                 </select>
-                <br><br>
+                <br><br><br>
+                <div class="submit-button">
                 <input class="submit" type="submit" value="Update">
+                </div>
             </form>
         </div>
         <%

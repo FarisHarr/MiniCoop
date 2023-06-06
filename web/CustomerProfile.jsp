@@ -103,7 +103,7 @@
                 }
             } else {
                 // If the session doesn't exist or customerID is not set, redirect to the login page
-                response.sendRedirect("login.html");
+                response.sendRedirect("Login.jsp");
             }
         %>
 
