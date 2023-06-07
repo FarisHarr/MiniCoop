@@ -264,6 +264,11 @@ input.submit {
     cursor: pointer;
 }
 
+.submit-button{
+    display: flex;
+    justify-content: center;
+}
+
 input.submit :hover {
     background-color: #f72b2b;
 }

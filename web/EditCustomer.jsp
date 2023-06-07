@@ -1,29 +1,36 @@
 <%-- 
-    Document   : EditStaff
-    Created on : 4 Jun 2023, 11:28:40 pm
+    Document   : EditCustomer
+    Created on : 5 Jun 2023, 9:57:42 pm
     Author     : FarisHarr
 --%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.sql.*" %>
+<%@ page import="com.mysql.jdbc.*" %>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
     <head>
         <meta charset="UTF-8">
-        <title>Edit Staff</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profile</title>
         <link rel="stylesheet" type="text/css" href="ManageStaff.css">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     </head>
-        
-        <!--Navigation Bar-->
+
+    <!-- Navigation Bar -->
+
     <body>
         <header>
             <div class="main">
                 <img class="logo" src="logoRe.png" alt="logo">
                 <nav>
                     <ul class="nav_links">
-                        <li><a href="ManageStaff.jsp">Manage Staff</a></li>
-                        <li><a href="ViewSalesReport.html">View Sales</a></li>
+                        <li><a href="homePage.html">Home</a></li>
+                        <li><a href="ProductPage.html">Product</a></li>
+                        <li><a href="ManageContactUs.html">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>
@@ -31,66 +38,64 @@
                 <li class="dropdown">
                     <a class="nav-link">Account</a>
                     <ul class="dropdown-content">
-<!--                        <li><a href="OwnerProfile.html">Edit Information</a></li>-->
+                        <li><a href="CustomerProfile.jsp">Edit Information</a></li>
                         <li><a href="StartPage.html">Sign Out</a></li>
                     </ul>
                 </li>
             </nav>
         </header>
-        
+
         <%
-            String staffID = request.getParameter("id");
+            String customerID = (String) session.getAttribute("customerID");
 
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
-                Statement st = con.createStatement();
-                ResultSet rs = st.executeQuery("SELECT * FROM staff WHERE id ='" + staffID + "'");
+                PreparedStatement ps = con.prepareStatement("SELECT * FROM customer WHERE id = ? ");
+                ps.setString(1, customerID);
+                ResultSet rs = ps.executeQuery();
 
                 if (rs.next()) {
-                    String staffName = rs.getString("name");
                     String email = rs.getString("email");
+                    String customerName = rs.getString("name");
                     String phone = rs.getString("phone");
-                    String role = rs.getString("role");
-
-//        Edit Page
         %>
+        <!-- Page -->
         <div class="popup-content">
-            <form action="UpdateStaff.jsp" method="post">
+            <form action="UpdateCustomer.jsp" method="post">
                 <h3>Update Staff</h3>
-                <input type="hidden" name="id" value="<%= staffID%>">
+                <input type="hidden" name="id" value="<%= customerID %>">
                 <br>
-                <label for="staffName">Staff Name:</label>
-                <input type="text" name="name" value="<%= staffName%>"><br>
+                <label for="Name"> Name:</label>
+                <input type="text" name="name" value="<%= customerName%>"><br>
                 <br>
                 <label for="email">Email:</label>
                 <input type="email" name="email" value="<%= email%>"><br>
                 <br>
                 <label for="phone">Phone Number:</label>
                 <input type="text" name="phone" value="<%= phone%>"><br>
-                <br>
-                <label for="role">Roles :</label>
-                <select id="role" name="role">
-                    <option value="Staff">Staff</option>
-                    <option value="Store Manager">Store Manager</option>
-                    <option value="Owner">Owner</option>
-                </select>
-                <br><br><br>
-                <div class="submit-button">
+                <br><br>
                 <input class="submit" type="submit" value="Update">
-                </div>
             </form>
         </div>
+
         <%
                 } else {
-                    out.println("Staff not found.");
+                    out.println("Customer not found.");
                 }
 
+                rs.close();
+                ps.close();
                 con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
             } catch (Exception e) {
                 out.println("Error: " + e);
             }
         %>
+
+
     </body>
 </html>
+
 
