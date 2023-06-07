@@ -47,9 +47,9 @@
 
         <div class="form-group" style="padding-top:  50px;">
             <form id="form" method="post" action="ManagePayment.jsp">
-            <label for="receiptNumber">Receipt Number</label>
-            <input type="text" id="receiptNumber" required>
-            <button onclick="checkPayment()">Check Payment</button>
+                <label for="receiptNumber">Receipt Number</label>
+                <input type="text" id="receiptNumber" required>
+                <button onclick="checkPayment()">Check Payment</button>
             </form>
         </div>
 
@@ -69,28 +69,39 @@
 
                 <tbody>
                     <!-- <c:forEach items="${receipt}" var="receipt" -->
-                    <tr>
-                        <%
-                            try {
-                                Class.forName("com.mysql.jdbc.Driver");
-                                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
-                                Statement st = con.createStatement();
-                                ResultSet rs = st.executeQuery("SELECT * FROM receipt");
+
+                    <%
+                        try {
+                            ResultSet rs;
+                            PreparedStatement st;
+                            Class.forName("com.mysql.jdbc.Driver");
+                            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
+                            String receiptid = request.getParameter("receipt_id");
+
+                            if (receiptid == null || receiptid.isEmpty()) {
+                                st = con.prepareStatement("SELECT * FROM receipt");
+                                rs = st.executeQuery();
 
                                 while (rs.next()) {
-                        %>
+                    %>
+                    <tr>
                         <td><%=rs.getInt("receipt_id")%></td>
                         <td><%=rs.getString("customer_name")%></td>
                         <td><%=rs.getDouble("amount")%></td>
                         <td><%=rs.getString("payment_method")%></td>
                         <td><%=rs.getString("status")%></td>
-                        <%
-                                }
-                            } catch (Exception e) {
-
-                            }
-                        %>
                     </tr>
+                    <%
+                                }
+                            } else {
+                            st = con.prepareStatement("SELECT * FROM receipt where ");
+                                rs = st.executeQuery();
+                            }
+                        } catch (Exception e) {
+
+                        }
+                    %>
+
                     </c:forEach>
                 </tbody>
                 <!-- Add more table rows for payment history -->
