@@ -93,12 +93,24 @@
                         <td><%=rs.getString("status")%></td>
                     </tr>
                     <%
-                                }
-                            } else {
-                                st = con.prepareStatement("SELECT * FROM receipt where receipt_id =?");
+                        }
+                    } else {
+                        st = con.prepareStatement("SELECT * FROM receipt where receipt_id =?");
 
-                                st.setString(1, receiptNumber.getReceipt());
-                                rs = st.executeQuery();
+                        st.setString(1, receiptNumber.getReceipt());
+                        rs = st.executeQuery();
+                        while (rs.next()) {
+                    %>
+
+                    <tr>
+                        <td><%=rs.getInt("receipt_id")%></td>
+                        <td><%=rs.getString("customer_name")%></td>
+                        <td><%=rs.getDouble("amount")%></td>
+                        <td><%=rs.getString("payment_method")%></td>
+                        <td><%=rs.getString("status")%></td>
+                    </tr>
+                    <%
+                                }
                             }
                         } catch (Exception e) {
 
