@@ -9,6 +9,7 @@
 <%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
+    <jsp:useBean id="receiptNumber" class="MiniCoop.com.Receipt" scope="request"/>
 
     <head>
         <meta charset="UTF-8">
@@ -94,7 +95,9 @@
                     <%
                                 }
                             } else {
-                            st = con.prepareStatement("SELECT * FROM receipt where ");
+                                st = con.prepareStatement("SELECT * FROM receipt where receipt_id =?");
+
+                                st.setString(1, receiptNumber.getReceipt());
                                 rs = st.executeQuery();
                             }
                         } catch (Exception e) {
