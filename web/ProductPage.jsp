@@ -1,3 +1,10 @@
+<%-- 
+    Document   : ProductPage
+    Created on : 8 Jun 2023, 12:24:18 pm
+    Author     : FarisHarr
+--%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,9 +20,9 @@
                 <img class="logo" src="logoRe.png" alt="logo">
                 <nav>
                     <ul class="nav_links">
-                        <li><a href="homePage.html">Home</a></li>
-                        <li><a href="ProductPage.html">Product</a></li>
-                        <li><a href="ManageContactUs.html">Contact Us</a></li>
+                        <li><a href="homePage.jsp">Home</a></li>
+                        <li><a href="ProductPage.jsp">Product</a></li>
+                        <li><a href="ManageContactUs.jsp">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>
@@ -27,7 +34,7 @@
                         <li><a href="StartPage.html">Sign Out</a></li>
                     </ul>
                 </li>
-                <!-- <a href="CustomerProfile.html"><img class="profilePic" src="profileImg.png" alt="profileImg"></a> -->
+                <!-- <a href="CustomerProfile.jsp"><img class="profilePic" src="profileImg.png" alt="profileImg"></a> -->
             </nav>
         </header>
         
@@ -50,8 +57,7 @@
             </div>
         </div>
         <script>
-            
-        const product = [
+            const product = [
             {
                 id: 0,
                 image: 'product1.png',
@@ -184,8 +190,8 @@
                 }).join('');
             }
 
-
         }
         </script>
     </body>
 </html>
+
