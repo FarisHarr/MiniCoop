@@ -18,7 +18,7 @@
             <nav>
                 <ul class="nav_links">
                     <li><a href="HomePage.html">Home</a></li>
-                    <li><a href="ProductPage.html">Product</a></li>
+                    <li><a href="ProductPage1.html">Product</a></li>
                     <li><a href="ManageContactUs.html">Contact Us</a></li>
                 </ul>
             </nav>
@@ -46,58 +46,12 @@
                     <div class='line'></div>
                     <table class='order-table'>
                         <tbody>
-                            <tr>
-                                <td><img src='Lunacolour.jpg' class='full-width'></img>
-                                </td>
-                                <td>
-                                    <br> <span class='thin'>Luna Colour Pencil(C1099)</span>
-                                    <br><br> <span class='thin small'> A lot of colour varation and suitable for kids <br><br></span>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class='price'>RM5.00</div>
-                                </td>
-                            </tr>
+                            <div id="cartItems"></div>
+  
+                            <h2>Total Price: <span id="totalPrice"></span></h2>
                         </tbody>
 
                     </table>
-                    <div class='line'></div>
-                    <table class='order-table'>
-                        <tbody>
-                            <tr>
-                                <td><img src='Bunchowater.png' class='full-width'></img>
-                                </td>
-                                <td>
-                                    <br> <span class='thin'>Buncho Water Colour(C0688)</span>
-                                    <br><br> <span class='thin small'> Water colour for beginner!</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                  <br>
-                                    <div class='price'>RM13.50</div>
-                                </td>
-                            </tr>
-                    </table>
-                    <div class='line'></div>
-                    <div class='total'>
-                        <span style='float:left;'>
-                          <br>
-                          <br>
-                            <div class='thin dense'>Item Subtotal</div>
-                            <div class='thin dense'>Tax</div>
-                            TOTAL
-                        </span>
-                        <span style='float:right; text-align:right;'>
-                          <br>
-                          <br>
-                            <div class='thin dense'>RM 18.50</div>
-                            <div class='thin dense'>RM 0.06</div>
-                            RM 18.56
-                        </span>
-                    </div>
                 </div>
             </div>
             <div class='payment'>
@@ -118,6 +72,48 @@
         </div>
     </div>
     <br>
+    
+    <script>
+    // Get the URL parameters
+    var urlParams = new URLSearchParams(window.location.search);
+
+    // Retrieve the cart data from the URL parameters
+    var cartItems = [];
+    var index = 0;
+    while (urlParams.has("id" + index)) {
+      var item = {
+        id: urlParams.get("id" + index),
+        title: urlParams.get("title" + index),
+        price: urlParams.get("price" + index)
+      };
+      cartItems.push(item);
+      index++;
+    }
+
+    // Calculate the total price
+    var totalPrice = cartItems.reduce(function(sum, item) {
+      return sum + parseFloat(item.price);
+    }, 0);
+
+    // Display the cart items and total price
+    var cartItemsContainer = document.getElementById("cartItems");
+    var totalPriceContainer = document.getElementById("totalPrice");
+
+    if (cartItems.length === 0) {
+      cartItemsContainer.innerHTML = "Your cart is empty.";
+    } else {
+      var cartHTML = "";
+      cartItems.forEach(function(item) {
+        cartHTML += "<div>";
+        cartHTML += "<h3>Item: " + item.title + "</h3>";
+        cartHTML += "<p>Price: $" + item.price + ".00</p>";
+        cartHTML += "</div>";
+      });
+      cartItemsContainer.innerHTML = cartHTML;
+    }
+
+    totalPriceContainer.textContent = "$" + totalPrice.toFixed(2);
+  </script>
 
 </body>
 

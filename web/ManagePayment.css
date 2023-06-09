@@ -132,49 +132,20 @@ button {
 }
 
   /* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 0;
-  }
 
-button{
-  background-color: #333;
-  color: #0088a9;
-}
-  
-  .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    text-align: center;
-    margin-top: 0;
-    color: #333;
-  }
-  
-  h3 {
-    color: #333;
-  }
   
   .payment-history-section {
     margin-top: 20px;
   }
   
-  .payment-history-section h3 {
-    font-size: 18px;
-    font-weight: bold;
-  }
+  
   
   .payment-history-section table {
-    width: 100%;
+    width: 90%;
     border-collapse: collapse;
+    background-color: white;
+    place-items: center;
+      margin: 10px;
   }
   
   .payment-history-section th,
@@ -185,10 +156,14 @@ button{
   
   .payment-history-section th {
     background-color: #f2f2f2;
-    text-align: left;
+    text-align: center;
   }
   
   .payment-history-section td {
     text-align: center;
   }
+  
+  
+  
+  
   

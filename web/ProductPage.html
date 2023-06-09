@@ -5,8 +5,6 @@
         <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
         <title>Product Page</title>
     </head>
-    
-    <!--Navigation Bar-->
     <body>
         <header>
             <div class="main">
@@ -30,8 +28,6 @@
                 <!-- <a href="CustomerProfile.html"><img class="profilePic" src="profileImg.png" alt="profileImg"></a> -->
             </nav>
         </header>
-        
-        <!--Page-->
         <div class="body">
             <div class="top">
                 <p class="text">MINI COOP PRODUCT</p>
@@ -46,6 +42,7 @@
                         <h3>Total</h3>
                         <h2 id="total">$ 0.00</h2>
                     </div>
+                    <p><button onclick="goToPayment()">Proceed to Payment</button></p>
                 </div>
             </div>
         </div>
@@ -107,7 +104,7 @@
                 `</div>
                 </div>`
             )
-        }).join('')
+        }).join('');
 
         var cart =[];
 
@@ -161,7 +158,9 @@
 
         function displaycart(){
             let j = 0, total=0;
+            //update the cart item count
             document.getElementById("count").innerHTML=cart.length;
+            //check if the cart is empty
             if(cart.length==0){
                 document.getElementById('cartItem').innerHTML = "Your cart is empty";
                 document.getElementById("total").innerHTML = "$ "+0+".00";
@@ -186,6 +185,16 @@
 
 
         }
+        
+        function goToPayment() {
+            // Create a URL parameter string with the cart data
+        var cartParams = cart.map((item, index) => {
+          return "id" + index + "=" + item.id + "&title" + index + "=" + item.title + "&price" + index + "=" + item.price;
+        }).join("&");
+
+        // Redirect to the payment page with the cart data as URL parameters
+        window.location.href = "Payment.html?" + cartParams;
+      }
         </script>
     </body>
 </html>

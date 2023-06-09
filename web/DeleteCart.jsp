@@ -16,10 +16,7 @@
         Class.forName("com.mysql.jdbc.Driver");
         
         //create a database connection
-        String url = "jdbc:mysql://localhost/minicoop";
-        String username = "root";
-        String password = "admin";
-        connection = DriverManager.getConnection(url, username, password);
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
         
         //retrieve the item ID to delete from the request parameters
         int itemIdToDelete = Integer.parseInt(request.getParameter("id"));

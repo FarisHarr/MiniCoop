@@ -9,14 +9,16 @@ package MiniCoop.com;
  * @author FarisHarr
  */
 public class Reciept {
-    private String recieptNumber;
+    private String receiptNumber;
 
-    public String getRecieptNumber() {
-        return recieptNumber;
+    public String getReceiptNumber() {
+        return receiptNumber;
     }
 
-    public void setRecieptNumber(String recieptNumber) {
-        this.recieptNumber = recieptNumber;
+    public void setReceiptNumber(String receiptNumber) {
+        this.receiptNumber = receiptNumber;
     }
+
+    
 
 }

@@ -27,7 +27,7 @@
             <li class="dropdown">
                 <a class="nav-link">Account</a>
                 <ul class="dropdown-content">
-                    <li><a href="CustomerProfile.html">Edit Information</a></li>
+                    <li><a href="CustomerProfile.jsp">Edit Information</a></li>
                     <li><a href="StartPage.html">Sign Out</a></li>
                 </ul>
             </li>
@@ -42,14 +42,10 @@
                 <div class="contact">
                     <h1 class="contact-us">Contact Us</h1>
                     <div class="alert">Your message has been sent!</div>
-                    <form id="contactForm">
+                    <form id="contactForm" action="processContactUs.jsp" method="post">
                         <p class="name-field">
                             <label>Name <span></span></label>
                             <input type="text" name="name" id="name">
-                        </p>
-                        <p class="company-field">
-                            <label>Company</label>
-                            <input type="text" name="company" id="company">
                         </p>
                         <p class="email-field">
                             <label>Email <span></span></label>
@@ -63,8 +59,8 @@
                             <label>Message</label>
                             <textarea name="message" rows="5" id="message"></textarea>
                         </p>
-                        <p class="submit-button">
-                            <a href="homePage.html" class="button">Submit</a>
+                        <p class="submit-button" style="background-color: #05c305">
+                            <input type="submit" id="submit" class="button" value="Submit">
                         </p>
 
                     </form>

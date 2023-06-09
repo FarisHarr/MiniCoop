@@ -9,7 +9,7 @@
 <%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
-    <jsp:useBean id="receiptNumber" class="MiniCoop.com.Reciept" scope="request"/>
+    <jsp:useBean id="receiptnum" class="MiniCoop.com.Reciept" scope="request"/>
 
     <head>
         <meta charset="UTF-8">
@@ -41,19 +41,19 @@
                 </li>
                 <!-- <a href="CustomerProfile.html"><img class="profilePic" src="profileImg.png" alt="profileImg"></a> -->
             </nav>
-
+            
 
 
         </header>
 
         <div class="form-group" style="padding-top:  50px;">
-            <form id="form" method="post" action="ManagePayment.jsp">
+            <form id="form" action="" method="POST">
                 <label for="receiptNumber">Receipt Number</label>
-                <input type="text" id="recieptNumber" required>
-                <button onclick="checkPayment()">Check Payment</button>
-            </form>
+                <input type="text" id="inputreceiptNumber" name="receiptNumber">
+                <input type="submit" id="btnsubmit" value="search"/>
+            
         </div>
-
+        
         <div class="payment-history-section">
             <h3>Payment History</h3>
 
@@ -73,12 +73,13 @@
 
                     <%
                         try {
+                        receiptnum.setReceiptNumber(request.getParameter("receiptNumber"));
                             ResultSet rs;
                             PreparedStatement st;
                             Class.forName("com.mysql.jdbc.Driver");
                             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
-                            String receiptid = request.getParameter("receipt_id");
-
+                            String receiptid = receiptnum.getReceiptNumber();
+                            
                             if (receiptid == null || receiptid.isEmpty()) {
                                 st = con.prepareStatement("SELECT * FROM receipt");
                                 rs = st.executeQuery();
@@ -92,12 +93,13 @@
                         <td><%=rs.getString("payment_method")%></td>
                         <td><%=rs.getString("status")%></td>
                     </tr>
+                
                     <%
                         }
                     } else {
                         st = con.prepareStatement("SELECT * FROM receipt where receipt_id =?");
 
-                        st.setString(1, receiptNumber.getRecieptNumber());
+                        st.setString(1, receiptnum.getReceiptNumber());
                         rs = st.executeQuery();
                         while (rs.next()) {
                     %>
@@ -122,7 +124,7 @@
                 <!-- Add more table rows for payment history -->
             </table>
         </div>
-
+</form>
 
         <!--content-->
     </body>
