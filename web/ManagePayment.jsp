@@ -9,7 +9,7 @@
 <%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
-    <jsp:useBean id="receiptNumber" class="MiniCoop.com.Receipt" scope="request"/>
+    <jsp:useBean id="receiptNumber" class="MiniCoop.com.Reciept" scope="request"/>
 
     <head>
         <meta charset="UTF-8">
@@ -35,7 +35,7 @@
                 <li class="dropdown">
                     <a class="nav-link">Account</a>
                     <ul class="dropdown-content">
-                        <li><a href="ManagerProfile.html">Edit Information</a></li>
+<!--                        <li><a href="ManagerProfile.html">Edit Information</a></li>-->
                         <li><a href="StartPage.html">Sign Out</a></li>
                     </ul>
                 </li>
@@ -49,7 +49,7 @@
         <div class="form-group" style="padding-top:  50px;">
             <form id="form" method="post" action="ManagePayment.jsp">
                 <label for="receiptNumber">Receipt Number</label>
-                <input type="text" id="receiptNumber" required>
+                <input type="text" id="recieptNumber" required>
                 <button onclick="checkPayment()">Check Payment</button>
             </form>
         </div>
@@ -97,7 +97,7 @@
                     } else {
                         st = con.prepareStatement("SELECT * FROM receipt where receipt_id =?");
 
-                        st.setString(1, receiptNumber.getReceipt());
+                        st.setString(1, receiptNumber.getRecieptNumber());
                         rs = st.executeQuery();
                         while (rs.next()) {
                     %>

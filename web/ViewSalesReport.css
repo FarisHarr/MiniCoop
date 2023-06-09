@@ -173,13 +173,14 @@ table {
 
 
 th {
-    text-align: left;
+    text-align: center;
     background-color: #f2f2f2;
 }
 
 td, th {
     border: 1px solid #ddd;
     padding: 8px;
+    text-align: center;
 }
 
 input[type=number] {
@@ -193,7 +194,7 @@ div.table{
 #table th,
 #table td {
     padding: 8px;
-    text-align: left;
+    text-align: center;
     border: 1px solid #ddd;
 }
 
