@@ -1,120 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <!-- header -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment</title>
-    <link rel="stylesheet" type="text/css" href="Payment.css">
-</head>
+    <head>
+        <!-- header -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Payment</title>
+        <link rel="stylesheet" type="text/css" href="Payment.css">
+    </head>
 
-<!-- Navigation Bar -->
-<body>
-    <header>
-        <div class="main">
-            <img class="logo" src="logoRe.png" alt="logo">
+    <!-- Navigation Bar -->
+    <body>
+        <header>
+            <div class="main">
+                <img class="logo" src="logoRe.png" alt="logo">
+                <nav>
+                    <ul class="nav_links">
+                        <li><a href="HomePage.html">Home</a></li>
+                        <li><a href="ProductPage.html">Product</a></li>
+                        <li><a href="ManageContactUs.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
             <nav>
-                <ul class="nav_links">
-                    <li><a href="HomePage.html">Home</a></li>
-                    <li><a href="ProductPage1.html">Product</a></li>
-                    <li><a href="ManageContactUs.html">Contact Us</a></li>
-                </ul>
+                <li class="dropdown">
+                    <a class="nav-link">Account</a>
+                    <ul class="dropdown-content">
+                        <li><a href="CustomerProfile.html">Edit Information</a></li>
+                        <li><a href="StartPage.html">Sign Out</a></li>
+                    </ul>
+                </li>
+                <!-- <a href="CustomerProfile.html"><img class="profilePic" src="profileImg.png" alt="profileImg"></a> -->
             </nav>
-        </div>
-        <nav>
-            <li class="dropdown">
-                <a class="nav-link">Account</a>
-                <ul class="dropdown-content">
-                    <li><a href="CustomerProfile.html">Edit Information</a></li>
-                    <li><a href="StartPage.html">Sign Out</a></li>
-                </ul>
-            </li>
-            <!-- <a href="CustomerProfile.html"><img class="profilePic" src="profileImg.png" alt="profileImg"></a> -->
-        </nav>
-    </header>
+        </header>
 
-    <!-- content -->
-    <h1>Payment</h1><br>
+        <!-- content -->
+        <h1>Payment</h1><br>
 
-    <div class='container'>
-        <div class='window'>
-            <div class='order-info'>
-                <div class='order-info-content'>
-                    <h2>Order Summary</h2>
-                    <div class='line'></div>
-                    <table class='order-table'>
-                        <tbody>
+        <div class='container'>
+            <div class='window'>
+                <div class='order-info'>
+                    <div class='order-info-content'>
+                        <h2>Order Summary</h2>
+                        <div class='line'></div>
+                        <table class='order-table'>
+                            <tbody>
                             <div id="cartItems"></div>
-  
+
                             <h2>Total Price: <span id="totalPrice"></span></h2>
-                        </tbody>
+                            </tbody>
 
-                    </table>
-                </div>
-            </div>
-            <div class='payment'>
-                <div class='payment-content'>
-                    <div class='half-input-table'>
-                        <p>ONLINE TRANSFER</p>
-                        <img src="accountNumber.jpg" width="1000" height="1000">
-                        <p>QR CODE</p>
-                        <img src="QrcodE.jpg" alt="QrCode">
+                        </table>
                     </div>
+                </div>
+                <div class='payment'>
+                    <div class='payment-content'>
+                        <div class='half-input-table'>
+                            <p>ONLINE TRANSFER</p>
+                            <img src="accountNumber.jpg" width="1000" height="1000">
+                            <p>QR CODE</p>
+                            <img src="QrcodE.jpg" alt="QrCode">
+                        </div>
 
-                    <br>
-                    Please submit your receipt here:
-                    <input type="file" class='input-field'>
-                    <a href="Success.html" type="button" class='pay-btn'>Checkout</a>
+                        <br>
+                        Please submit your receipt here:
+                        <input type="file" class='input-field'>
+                        <a href="#" type="button" class='pay-btn' onclick="handleCheckout()">Checkout</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <br>
-    
-    <script>
-    // Get the URL parameters
-    var urlParams = new URLSearchParams(window.location.search);
+        <br>
 
-    // Retrieve the cart data from the URL parameters
-    var cartItems = [];
-    var index = 0;
-    while (urlParams.has("id" + index)) {
-      var item = {
-        id: urlParams.get("id" + index),
-        title: urlParams.get("title" + index),
-        price: urlParams.get("price" + index)
-      };
-      cartItems.push(item);
-      index++;
-    }
+        <script>
+            // Get the URL parameters
+            var urlParams = new URLSearchParams(window.location.search);
 
-    // Calculate the total price
-    var totalPrice = cartItems.reduce(function(sum, item) {
-      return sum + parseFloat(item.price);
-    }, 0);
+            // Retrieve the cart data from the URL parameters
+            var cartItems = [];
+            var index = 0;
+            while (urlParams.has("id" + index)) {
+                var item = {
+                    id: urlParams.get("id" + index),
+                    title: urlParams.get("title" + index),
+                    price: urlParams.get("price" + index)
+                };
+                cartItems.push(item);
+                index++;
+            }
 
-    // Display the cart items and total price
-    var cartItemsContainer = document.getElementById("cartItems");
-    var totalPriceContainer = document.getElementById("totalPrice");
+            // Calculate the total price
+            var totalPrice = cartItems.reduce(function (sum, item) {
+                return sum + parseFloat(item.price);
+            }, 0);
 
-    if (cartItems.length === 0) {
-      cartItemsContainer.innerHTML = "Your cart is empty.";
-    } else {
-      var cartHTML = "";
-      cartItems.forEach(function(item) {
-        cartHTML += "<div>";
-        cartHTML += "<h3>Item: " + item.title + "</h3>";
-        cartHTML += "<p>Price: $" + item.price + ".00</p>";
-        cartHTML += "</div>";
-      });
-      cartItemsContainer.innerHTML = cartHTML;
-    }
+            // Display the cart items and total price
+            var cartItemsContainer = document.getElementById("cartItems");
+            var totalPriceContainer = document.getElementById("totalPrice");
 
-    totalPriceContainer.textContent = "$" + totalPrice.toFixed(2);
-  </script>
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = "Your cart is empty.";
+            } else {
+                var cartHTML = "";
+                cartItems.forEach(function (item) {
+                    cartHTML += "<div>";
+                    cartHTML += "<h3>Item: " + item.title + "</h3>";
+                    cartHTML += "<p>Price: $" + item.price + ".00</p>";
+                    cartHTML += "</div>";
+                });
+                cartItemsContainer.innerHTML = cartHTML;
+            }
 
-</body>
+            totalPriceContainer.textContent = "$" + totalPrice.toFixed(2);
+
+            function handleCheckout() {
+                // Send an AJAX request to delete all data from the cart table
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            // Successful response
+                            console.log("Cart data deleted successfully.");
+                            // Redirect to the success page
+                            window.location.href = "Success.html";
+                        } else {
+                            // Error handling
+                            console.error("Error deleting cart data.");
+                        }
+                    }
+                };
+                xhr.open("GET", "deleteAllData.jsp", true);
+                xhr.send();
+            }
+
+            // Add an event listener to the checkout button
+            var checkoutButton = document.getElementById("checkoutButton");
+            checkoutButton.addEventListener("click", handleCheckout);
+        </script>
+
+    </body>
 
 </html>

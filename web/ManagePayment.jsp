@@ -35,25 +35,26 @@
                 <li class="dropdown">
                     <a class="nav-link">Account</a>
                     <ul class="dropdown-content">
-<!--                        <li><a href="ManagerProfile.html">Edit Information</a></li>-->
+                        <!--                        <li><a href="ManagerProfile.html">Edit Information</a></li>-->
                         <li><a href="StartPage.html">Sign Out</a></li>
                     </ul>
                 </li>
                 <!-- <a href="CustomerProfile.html"><img class="profilePic" src="profileImg.png" alt="profileImg"></a> -->
             </nav>
-            
+
 
 
         </header>
 
-        <div class="form-group" style="padding-top:  50px;">
+        <div class="form-group" style="margin: 20px;">
             <form id="form" action="" method="POST">
                 <label for="receiptNumber">Receipt Number</label>
                 <input type="text" id="inputreceiptNumber" name="receiptNumber">
                 <input type="submit" id="btnsubmit" value="search"/>
-            
+
         </div>
-        
+
+        <!--Page-->
         <div class="payment-history-section">
             <h3>Payment History</h3>
 
@@ -73,13 +74,13 @@
 
                     <%
                         try {
-                        receiptnum.setReceiptNumber(request.getParameter("receiptNumber"));
+                            receiptnum.setReceiptNumber(request.getParameter("receiptNumber"));
                             ResultSet rs;
                             PreparedStatement st;
                             Class.forName("com.mysql.jdbc.Driver");
                             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
                             String receiptid = receiptnum.getReceiptNumber();
-                            
+
                             if (receiptid == null || receiptid.isEmpty()) {
                                 st = con.prepareStatement("SELECT * FROM receipt");
                                 rs = st.executeQuery();
@@ -93,7 +94,7 @@
                         <td><%=rs.getString("payment_method")%></td>
                         <td><%=rs.getString("status")%></td>
                     </tr>
-                
+
                     <%
                         }
                     } else {
@@ -119,14 +120,9 @@
                         }
                     %>
 
-                    </c:forEach>
                 </tbody>
-                <!-- Add more table rows for payment history -->
             </table>
         </div>
-</form>
-
-        <!--content-->
     </body>
 
 </html>
