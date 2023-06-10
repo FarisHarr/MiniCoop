@@ -64,7 +64,7 @@
                             }
                         } else {
                             // User not found, display error message
-                            out.println("Invalid email or password. Please try again.");
+                            out.println("<span style='color: white;'>Invalid email or password. Please try again.</span>");
                         }
 
                         myConnection.close();
