@@ -131,39 +131,53 @@ button {
     background-color: #24252a;
 }
 
-  /* General Styles */
+/* CONTENT START */
 
-  
-  .payment-history-section {
-    margin-top: 20px;
-  }
-  
-  
-  
-  .payment-history-section table {
-    width: 90%;
+h3{
+    color: black;
+    margin: 20px;
+}
+
+#inputreceiptNumber {
+    width: 300px;
+    height: 20px;
+    margin: 10px;
+}
+
+#btnsubmit{
+    background-color: #4CAF50;
+    color: white;
+    width: 90px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 5px;
+    border-style: none;
+    cursor: pointer;
+}
+
+table {
+    width: 95%;
     border-collapse: collapse;
     background-color: white;
     place-items: center;
-      margin: 10px;
-  }
-  
-  .payment-history-section th,
-  .payment-history-section td {
+    margin: 10px;
+}
+
+th,
+td {
     padding: 8px;
     border: 1px solid #ccc;
-  }
-  
-  .payment-history-section th {
+}
+
+th {
     background-color: #f2f2f2;
     text-align: center;
-  }
-  
-  .payment-history-section td {
+}
+
+td {
     text-align: center;
-  }
-  
-  
-  
-  
-  
+}
+
+
+
+
