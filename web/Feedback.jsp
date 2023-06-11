@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ViewSalesReport
-    Created on : 9 Jun 2023, 6:01:25?pm
+    Document   : Feedback
+    Created on : 11 Jun 2023, 5:21:16?pm
     Author     : FarisHarr
 --%>
 
@@ -47,17 +47,17 @@
 
     <!-- CONTENT START HERE -->
     <div class="top-content">
-        <h2>View Sales Report</h2>
+        <h2>Feedback</h2>
         <button onclick="refreshSalesReport()">Refresh</button>
     </div>
     <div class="table">
         <table id="salesTable">
             <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Total</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Message</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,7 +68,7 @@
                     Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
 
                     // Execute the SQL query to retrieve sales data
-                    String sql = "SELECT * FROM sales";
+                    String sql = "SELECT * FROM contactus";
                     Statement statement = conn.createStatement();
                     ResultSet resultSet = statement.executeQuery(sql);
 
@@ -76,11 +76,12 @@
                     while (resultSet.next()) {
                 %>
                 <tr>
-<!--                    <td><%= resultSet.getString("sales_id") %></td>-->
-                    <td><%= resultSet.getString("title") %></td>
-                    <td><%= resultSet.getInt("quantity") %></td>
-                    <td><%= resultSet.getDouble("price") %></td>
-                    <td><%= resultSet.getInt("quantity") * resultSet.getDouble("price") %></td>
+                   
+                    <td><%= resultSet.getString("name") %></td>
+                    <td><%= resultSet.getString("email") %></td>
+                    <td><%= resultSet.getString("phone") %></td>
+                    <td><%= resultSet.getString("message") %></td>
+                  
                 </tr>
                 <%
                     }
@@ -107,4 +108,3 @@
 </body>
 
 </html>
-

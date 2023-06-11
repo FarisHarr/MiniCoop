@@ -66,6 +66,11 @@ body {
     border-radius: 20px;
 }
 
+.login:hover {
+    cursor: pointer;
+    background-color: #0088a9;
+}
+
 #submit {
     padding: 12px 50px;
     width: 40%;
@@ -77,10 +82,8 @@ body {
     outline: none;
     border-radius: 20px;
 }
-#submit:hover {
-    cursor: pointer;
-    background-color: #0088a9;
-}
+
+
 .form a {
     text-decoration: none;
     color: black;
