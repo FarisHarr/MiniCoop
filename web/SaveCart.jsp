@@ -50,33 +50,7 @@
             insertStatement.executeUpdate();
         }
         
-        // Save the item data to the sales table
-        String selectSalesQuery = "SELECT * FROM sales WHERE id=?";
-        PreparedStatement selectSalesStatement = connection.prepareStatement(selectSalesQuery);
-        selectSalesStatement.setInt(1, itemId);
-        ResultSet salesResultSet = selectSalesStatement.executeQuery();
-        
-        if (salesResultSet.next()) {
-            // If the item already exists in the sales table, update the quantity
-            int currentSalesQuantity = salesResultSet.getInt("quantity");
-            int newSalesQuantity = currentSalesQuantity + 1;
-            
-            String updateSalesQuery = "UPDATE sales SET quantity=? WHERE id=?";
-            PreparedStatement updateSalesStatement = connection.prepareStatement(updateSalesQuery);
-            updateSalesStatement.setInt(1, newSalesQuantity);
-            updateSalesStatement.setInt(2, itemId);
-            updateSalesStatement.executeUpdate();
-        } else {
-            // If the item does not exist in the sales table, insert a new row
-            String insertSalesQuery = "INSERT INTO sales (id, title, price, quantity) VALUES (?, ?, ?, ?)";
-            PreparedStatement insertSalesStatement = connection.prepareStatement(insertSalesQuery);
-            insertSalesStatement.setInt(1, itemId);
-            insertSalesStatement.setString(2, itemTitle);
-            insertSalesStatement.setDouble(3, itemPrice);
-            insertSalesStatement.setInt(4, 1); // Initialize quantity to 1 for a new sale
-            insertSalesStatement.executeUpdate();
-        }
-        
+
         // Close the database connection
         connection.close();
     } catch(Exception e) {
