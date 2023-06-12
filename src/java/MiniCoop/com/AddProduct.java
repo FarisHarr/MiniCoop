@@ -12,7 +12,7 @@ public class AddProduct {
     private int productcode;
     private String productname;
     private int quantity;
-    private String price;
+    private double price;
 
     public int getProductcode() {
         return productcode;
@@ -38,11 +38,11 @@ public class AddProduct {
         this.quantity = quantity;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

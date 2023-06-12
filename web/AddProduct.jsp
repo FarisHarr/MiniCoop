@@ -21,7 +21,7 @@
                 // Retrieve the form data from the request
                 addprod.setProductcode(Integer.parseInt(request.getParameter("productcode")));
                 addprod.setProductname(request.getParameter("productname"));
-                addprod.setPrice(request.getParameter("price"));
+                addprod.setPrice(Double.parseDouble(request.getParameter("price")));
                 addprod.setQuantity(Integer.parseInt(request.getParameter("quantity")));
 
 
@@ -32,7 +32,7 @@
                 st.setInt(1, addprod.getProductcode());
                 st.setString(2, addprod.getProductname());
                 st.setInt(3, addprod.getQuantity());
-                st.setString(4, addprod.getPrice());
+                st.setDouble(4, addprod.getPrice());
                 st.executeUpdate();
 
                 // Execute the SQL statement

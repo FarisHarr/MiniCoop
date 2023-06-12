@@ -35,11 +35,9 @@
                 <li class="dropdown">
                     <a class="nav-link">Account</a>
                     <ul class="dropdown-content">
-                        <!--                    <li><a href="StaffProfile.html">Edit Information</a></li>-->
                         <li><a href="StartPage.html">Sign Out</a></li>
                     </ul>
                 </li>
-                <!-- <a href="CustomerProfile.html"><img class="profilePic" src="profileImg.png" alt="profileImg"></a> -->
             </nav>
         </header>
 
@@ -56,7 +54,7 @@
                     <input type="text" name="productcode" placeholder="Product Code" required><br><br>
                     <input type="text" name="productname" placeholder="Product Name" required><br><br>
                     <input type="number" name="quantity" placeholder="Quantity" required><br><br>
-                    <input type="text" name="price" placeholder="Price"><br><br>
+                    <input type="number" step="any" name="price" placeholder="Price"><br><br>
                     <input type="submit" value="Add Product"/>
                 </form>
             </div>
@@ -90,10 +88,10 @@
                     <td><%=rs.getString("prod_ID")%></td>
                     <td><%=rs.getString("prod_Name")%></td>
                     <td><%=rs.getInt("prod_Qty")%></td>
-                    <td><%=rs.getString("prod_Price")%></td>
+                    <td><%=rs.getDouble("prod_Price")%></td>
                     <td>
                         <button>Edit</button>
-                        <button>Delete</button>
+                        <button onclick="deleteProduct('<%= rs.getString("prod_ID")%>')">Delete</button>
                     </td>
                 </tr>
                 <%
@@ -150,6 +148,33 @@
 
                 // Send the request
                 xhr.send("productcode=" + encodeURIComponent(productCode) + "&price=" + encodeURIComponent(price));
+            }
+
+            function deleteProduct(productId) {
+                // Create XMLHttpRequest object
+                const xhr = new XMLHttpRequest();
+
+                // Configure the request
+                xhr.open("POST", "DeleteProduct.jsp", true);
+
+                // Set the request header
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+                // Define the callback function
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            // Request was successful, navigate back to ManageProduct.jsp
+                            window.location.href = "ManageProduct.jsp";
+                        } else {
+                            // Request failed, handle the error
+                            console.error("Error: " + xhr.status);
+                        }
+                    }
+                };
+
+                // Send the request
+                xhr.send("productId=" + encodeURIComponent(productId));
             }
         </script>
     </body>
