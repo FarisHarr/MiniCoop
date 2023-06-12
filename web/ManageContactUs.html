@@ -43,21 +43,21 @@
                     <h1 class="contact-us">Contact Us</h1>
                     <div class="alert">Your message has been sent!</div>
                     <form id="contactForm" action="processContactUs.jsp" method="post">
-                        <p class="name-field">
+                        <p class="name-field" >
                             <label>Name <span></span></label>
-                            <input type="text" name="name" id="name">
+                            <input type="text" name="name" id="name" required>
                         </p>
                         <p class="email-field">
                             <label>Email <span></span></label>
-                            <input type="email" name="email" id="email">
+                            <input email="email" name="email" id="email" required>
                         </p>
                         <p class="phone-field">
                             <label>Phone</label>
-                            <input type="text" name="phone" id="phone">
+                            <input type="text" name="phone" id="phone" required>
                         </p>
                         <p class="message-field full">
                             <label>Message</label>
-                            <textarea name="message" rows="5" id="message"></textarea>
+                            <textarea name="message" rows="5" id="message" required></textarea>
                         </p>
                         <p class="submit-button" style="background-color: #05c305">
                             <input type="submit" id="submit" class="button" value="Submit">

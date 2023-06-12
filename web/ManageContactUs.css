@@ -241,19 +241,17 @@ ul {
 }
 
 .button {
-    display: inline-block;
     padding: 10px 20px;
     background-color: #0088a9;
     color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-
+    cursor: pointer;
 
 }
 
 .submit-button {
     align-self: center;
     justify-self: end;
+    border-radius: 16px;
 
 }
 

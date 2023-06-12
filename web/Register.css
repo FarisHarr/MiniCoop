@@ -59,6 +59,7 @@ body {
 #submit:hover {
     cursor: pointer;
     background-color: #0088a9;
+    border: 1px solid  black;
 }
 .form a {
     text-decoration: none;

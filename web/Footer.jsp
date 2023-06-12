@@ -17,7 +17,7 @@
             }
 
             .container {
-                min-height: 65%;
+                min-height: 70%;
                 display: flex;
                 flex-direction: column;
             }
