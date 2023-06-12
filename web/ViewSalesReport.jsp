@@ -103,7 +103,7 @@
             location.reload();
         }
     </script>
-
+ <jsp:include flush="true" page="Footer.jsp" />
 </body>
 
 </html>

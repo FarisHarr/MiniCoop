@@ -42,7 +42,7 @@
         </header>
 
 
-        <h1>Manage Product</h1>
+        <h2>Manage Product</h2>
 
         <button class="register-product-button" onclick="showPopup()">Add Product</button>
 
@@ -58,6 +58,7 @@
                     <input type="submit" value="Add Product"/>
                 </form>
             </div>
+
         </div>
 
         <table>
@@ -90,7 +91,7 @@
                     <td><%=rs.getInt("prod_Qty")%></td>
                     <td><%=rs.getDouble("prod_Price")%></td>
                     <td>
-                        <button>Edit</button>
+                        <button onclick="location.href = 'EditProduct.jsp?productId=<%= rs.getString("prod_ID")%>'">Update</button>
                         <button onclick="deleteProduct('<%= rs.getString("prod_ID")%>')">Delete</button>
                     </td>
                 </tr>
@@ -103,6 +104,9 @@
                 %>
             </tbody>
         </table>
+
+
+
         <script>
             function showPopup() {
                 document.querySelector(".popup").style.display = "block";
@@ -111,6 +115,7 @@
             function hidePopup() {
                 document.querySelector(".popup").style.display = "none";
             }
+
 
 
             function addProduct(event) {
@@ -150,6 +155,8 @@
                 xhr.send("productcode=" + encodeURIComponent(productCode) + "&price=" + encodeURIComponent(price));
             }
 
+
+
             function deleteProduct(productId) {
                 // Create XMLHttpRequest object
                 const xhr = new XMLHttpRequest();
@@ -173,9 +180,12 @@
                     }
                 };
 
+
                 // Send the request
                 xhr.send("productId=" + encodeURIComponent(productId));
             }
         </script>
+        
+        <jsp:include flush="true" page="Footer.jsp" />
     </body>
 </html>

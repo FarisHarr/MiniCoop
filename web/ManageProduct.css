@@ -168,6 +168,11 @@ button {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+h2{
+    margin: 10px;
 }
 
 .modal-content {
@@ -219,8 +224,9 @@ button {
     background-color: #bbb;
 }
 table {
-    width: 100%;
+    width: 90%;
     border-collapse: collapse;
+    margin: 10px;
 }
 
 th, td {
@@ -247,5 +253,10 @@ input[type="submit"] {
     background-color: #4CAF50;
     color: white;
     border: none;
+    cursor: pointer;
+}
+
+button{
+    background-color: green;
     cursor: pointer;
 }

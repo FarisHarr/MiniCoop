@@ -123,6 +123,7 @@
                 </tbody>
             </table>
         </div>
+                     <jsp:include flush="true" page="Footer.jsp" />
     </body>
 
 </html>
