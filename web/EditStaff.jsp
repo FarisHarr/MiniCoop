@@ -13,10 +13,38 @@
         <meta charset="UTF-8">
         <title>Edit Staff</title>
         <link rel="stylesheet" type="text/css" href="ManageStaff.css">
+        <style>
+
+            input.submit {
+                display: flex;
+                justify-content: center;
+                width: 80px;
+                height: 25px;
+                padding: 5px;
+                border-radius: 5px;
+                border: 1px solid #24252a;
+                background-color: #4CAF50;
+                cursor: pointer;
+                margin: 20px;
+            }
+            
+            input.cancel {
+                display: flex;
+                justify-content: center;
+                width: 80px;
+                height: 25px;
+                padding: 5px;
+                border-radius: 5px;
+                border: 1px solid #24252a;
+                background-color: #4CAF50;
+                cursor: pointer;
+                margin: 20px;
+            }
+        </style>
     </head>
-        
-        <!--Navigation Bar-->
-    <body>
+
+    <!--Navigation Bar-->
+<!--    <body>
         <header>
             <div class="main">
                 <img class="logo" src="logoRe.png" alt="logo">
@@ -32,15 +60,16 @@
                 <li class="dropdown">
                     <a class="nav-link">Account</a>
                     <ul class="dropdown-content">
-<!--                        <li><a href="OwnerProfile.html">Edit Information</a></li>-->
+                                                <li><a href="OwnerProfile.html">Edit Information</a></li>
                         <li><a href="StartPage.html">Sign Out</a></li>
                     </ul>
                 </li>
             </nav>
-        </header>
-        
+        </header>-->
+
         <%
             String staffID = request.getParameter("id");
+            String action = request.getParameter("action");
 
             try {
                 Class.forName("com.mysql.jdbc.Driver");
@@ -53,8 +82,6 @@
                     String email = rs.getString("email");
                     String phone = rs.getString("phone");
                     String role = rs.getString("role");
-
-//        Edit Page
         %>
         <div class="popup-content">
             <form action="UpdateStaff.jsp" method="post">
@@ -78,7 +105,8 @@
                 </select>
                 <br><br><br>
                 <div class="submit-button">
-                <input class="submit" type="submit" value="Update">
+                    <input class="submit" type="submit" value="Update">
+                    <input class="cancel" type="button" value="Cancel" onclick="location.href = 'ManageStaff.jsp'">
                 </div>
             </form>
         </div>
@@ -92,6 +120,7 @@
                 out.println("Error: " + e);
             }
         %>
+
     </body>
 </html>
 

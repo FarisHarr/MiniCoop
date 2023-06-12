@@ -16,7 +16,6 @@
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
-            /* Add the provided CSS styles here */
             body {
                 background-color:aliceblue;
             }

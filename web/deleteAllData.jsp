@@ -36,4 +36,3 @@
         out.println("Error deleting data from the cart table: " + e.getMessage());
     }
 %>
-

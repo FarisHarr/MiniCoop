@@ -140,8 +140,11 @@ body {
   text-rendering: optimizeLegibility;
   text-decoration: none;
 }
+h2{
+    margin: 10px;
+}
 
-h2 {
+.container h2 {
   margin-bottom: 0px;
   margin-top: 25px;
   text-align: center;
