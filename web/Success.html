@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="Success.css">
-    <title>Success Page</title>
-</head>
-<body>
-    <div class="container">
-        <div class="popup" id="popup">
-            <img src="tick.png">
-            <h2>Thank You!</h2>
-            <p>Your order has been confirmed.</p>
-            <p>Check your email for details.</p>
-            <a href="homePage.html"><button type="button">OK</button></a>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="Success.css">
+        <title>Success Page</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="popup">
+                <img src="tick.png">
+                <h2>Thank You!</h2>
+                <p>Your order has been confirmed.</p>
+                <p>Check your email for details.</p><br>
+                <a href="#" type="button" onclick="handleCheckout()"><button type="button">OK</button></a>
+            </div>
         </div>
-    </div>
-</body>
+
+        <script>
+            function handleCheckout() {
+                // Send an AJAX request to delete all data from the cart table
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            // Successful response
+                            console.log("Cart data deleted successfully.");
+                            // Redirect to the success page
+                            window.location.href = "homePage.html";
+                        } else {
+                            // Error handling
+                            console.error("Error deleting cart data.");
+                        }
+                    }
+                };
+                xhr.open("GET", "product", true);
+                xhr.send();
+            }
+
+//            // Add an event listener to the checkout button
+//            var checkoutButton = document.getElementById("checkoutButton");
+//            checkoutButton.addEventListener("click", handleCheckout);
+        </script>
+    </body>
 </html>

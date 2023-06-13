@@ -1,15 +1,19 @@
-
-package MiniCoop.com;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.model;
 
 /**
  *
  * @author FarisHarr
  */
-public class ContactUs {
+public class Register {
+    
     private String name;
     private String email;
+    private String password;
     private String phone;
-    private String message;
 
     public String getName() {
         return name;
@@ -19,12 +23,12 @@ public class ContactUs {
         return email;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPassword() {
+        return password;
     }
 
-    public String getMessage() {
-        return message;
+    public String getPhone() {
+        return phone;
     }
 
     public void setName(String name) {
@@ -35,13 +39,13 @@ public class ContactUs {
         this.email = email;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-    
     
 }

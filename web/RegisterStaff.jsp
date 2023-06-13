@@ -13,7 +13,7 @@
         <title>Register Page</title>
     </head>
     <body>
-        <jsp:useBean id="staff" class="MiniCoop.com.RegisterStaff" scope="request"/>
+        <jsp:useBean id="staff" class="com.model.RegisterStaff" scope="request"/>
         
         <% 
             staff.setEmail(request.getParameter("email"));

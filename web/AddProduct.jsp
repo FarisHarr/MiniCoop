@@ -6,7 +6,7 @@
 
 <%@ page import="java.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="addprod" class="MiniCoop.com.AddProduct" scope="request"/>
+<jsp:useBean id="addprod" class="com.model.AddProduct" scope="request"/>
 <!DOCTYPE html>
 <html>
     <head>

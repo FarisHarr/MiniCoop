@@ -4,6 +4,22 @@
         <link rel="stylesheet" href="ProductPage.css">
         <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
         <title>Product Page</title>
+
+        <style>
+
+            footer {
+                background-color: #24252a;
+                height: 70px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+            }
+
+            footer  p {
+                color: white;
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -47,156 +63,158 @@
             </div>
         </div>
         <script>
-            
-        const product = [
+
+            const product = [
+                {
+                    id: 0,
+                    image: 'product1.png',
+                    title: 'CHEMISTRY BOOK',
+                    price: 30,
+                },
+                {
+                    id: 1,
+                    image: 'product2.png',
+                    title: 'PHYSIC BOOK',
+                    price: 35,
+                },
+                {
+                    id: 2,
+                    image: 'product3.png',
+                    title: 'LANYARD',
+                    price: 10,
+                },
+                {
+                    id: 3,
+                    image: 'product4.png',
+                    title: 'ERASER',
+                    price: 1,
+                },
+                {
+                    id: 4,
+                    image: 'product5.png',
+                    title: 'BLACK PEN',
+                    price: 5,
+                },
+                {
+                    id: 5,
+                    image: 'product6.png',
+                    title: 'BLUE PEN',
+                    price: 5,
+                }
+            ];
+            const categories = [...new Set(product.map((item) =>
+                {
+                    return item
+                }))]
+            let i = 0;
+            document.getElementById('root').innerHTML = categories.map((item) =>
             {
-                id: 0,
-                image: 'product1.png',
-                title: 'CHEMISTRY BOOK',
-                price: 30,
-            },
-            {
-                id: 1,
-                image: 'product2.png',
-                title: 'PHYSIC BOOK',
-                price: 35,
-            },
-            {
-                id: 2,
-                image: 'product3.png',
-                title: 'LANYARD',
-                price: 10,
-            },
-            {
-                id: 3,
-                image: 'product4.png',
-                title: 'ERASER',
-                price: 1,
-            },
-            {
-                id: 4,
-                image: 'product5.png',
-                title: 'BLACK PEN',
-                price: 5,
-            },
-            {
-                id: 5,
-                image: 'product6.png',
-                title: 'BLUE PEN',
-                price: 5,
-            }
-        ];
-        const categories = [...new Set(product.map((item)=>
-            {return item}))]
-            let i=0;
-        document.getElementById('root').innerHTML = categories.map((item)=>
-        {
-            var {image, title, price} = item;
-            return(
-                `<div class='box'>
+                var {image, title, price} = item;
+                return(
+                        `<div class='box'>
                     <div class='img-box'>
                         <img class='images' src=${image}></img>
                     </div>
                 <div class='bottom'>
                 <p>${title}</p>
-                <h2>$ ${price}.00</h2>`+
-                "<button onclick='addtocart("+(i++)+")'>Add to cart</button>"+
-                `</div>
+                <h2>$ ${price}.00</h2>` +
+                        "<button onclick='addtocart(" + (i++) + ")'>Add to cart</button>" +
+                        `</div>
                 </div>`
-            )
-        }).join('');
+                        )
+            }).join('');
 
-        var cart =[];
+            var cart = [];
 
-        function addtocart(a){
-            cart.push({...categories[a]});
-            displaycart();
-            
-            //send an AJAX request to saveCart.jsp
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "SaveCart.jsp", true);
-            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            
-            //create a parameter string with the cart data
-            var params = "id=" + categories[a].id + 
-                                    "&price=" + categories[a].price + 
-                                    "&title=" + categories[a].title;
-                            
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    console.log(xhr.responseText); //handle the response from the server
-                }
-            };
-            
-            //send the request
-            xhr.send(params);
-        }
-        
-        function delElement(a){
-            var item = cart[a];
-            var itemId = item.id;
-            
-            //send an AJAX request to deleteCart.jsp
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "DeleteCart.jsp", true);
-            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            
-            //create a parameter string with the item ID
-            var params = "id=" + itemId;
-            
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    //on success, remove the item from the cart and update the display
-                    cart.splice(a, 1);
-                    displaycart();
-                }
-            };
-            
-            //send the request
-            xhr.send(params);
-        }
+            function addtocart(a) {
+                cart.push({...categories[a]});
+                displaycart();
 
-        function displaycart(){
-            let j = 0, total=0;
-            //update the cart item count
-            document.getElementById("count").innerHTML=cart.length;
-            //check if the cart is empty
-            if(cart.length==0){
-                document.getElementById('cartItem').innerHTML = "Your cart is empty";
-                document.getElementById("total").innerHTML = "$ "+0+".00";
+                //send an AJAX request to saveCart.jsp
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "SaveCart.jsp", true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+                //create a parameter string with the cart data
+                var params = "id=" + categories[a].id +
+                        "&price=" + categories[a].price +
+                        "&title=" + categories[a].title;
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        console.log(xhr.responseText); //handle the response from the server
+                    }
+                };
+
+                //send the request
+                xhr.send(params);
             }
-            else{
-                document.getElementById("cartItem").innerHTML = cart.map((items)=>
-                {
-                    var {image, title, price} = items;
-                    total=total+price;
-                    document.getElementById("total").innerHTML = "$ "+total+".00";
-                    return(
-                        `<div class='cart-item'>
+
+            function delElement(a) {
+                var item = cart[a];
+                var itemId = item.id;
+
+                //send an AJAX request to deleteCart.jsp
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "DeleteCart.jsp", true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+                //create a parameter string with the item ID
+                var params = "id=" + itemId;
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        //on success, remove the item from the cart and update the display
+                        cart.splice(a, 1);
+                        displaycart();
+                    }
+                };
+
+                //send the request
+                xhr.send(params);
+            }
+
+            function displaycart() {
+                let j = 0, total = 0;
+                //update the cart item count
+                document.getElementById("count").innerHTML = cart.length;
+                //check if the cart is empty
+                if (cart.length == 0) {
+                    document.getElementById('cartItem').innerHTML = "Your cart is empty";
+                    document.getElementById("total").innerHTML = "$ " + 0 + ".00";
+                } else {
+                    document.getElementById("cartItem").innerHTML = cart.map((items) =>
+                    {
+                        var {image, title, price} = items;
+                        total = total + price;
+                        document.getElementById("total").innerHTML = "$ " + total + ".00";
+                        return(
+                                `<div class='cart-item'>
                         <div class='row-img'>
                             <img class='rowimg' src=${image}>
                         </div>
                         <p style='font-size:12px;'>${title}</p>
-                        <h2 style='font-size: 15px;'>$ ${price}.00</h2>`+
-                        "<i class='fa-solid fa-trash' onclick='delElement("+ (j++) +")'></i></div>"
-                    );
-                }).join('');
+                        <h2 style='font-size: 15px;'>$ ${price}.00</h2>` +
+                                "<i class='fa-solid fa-trash' onclick='delElement(" + (j++) + ")'></i></div>"
+                                );
+                    }).join('');
+                }
+
+
             }
 
+            function goToPayment() {
+                // Create a URL parameter string with the cart data
+                var cartParams = cart.map((item, index) => {
+                    return "id" + index + "=" + item.id + "&title" + index + "=" + item.title + "&price" + index + "=" + item.price;
+                }).join("&");
 
-        }
-        
-        function goToPayment() {
-            // Create a URL parameter string with the cart data
-        var cartParams = cart.map((item, index) => {
-          return "id" + index + "=" + item.id + "&title" + index + "=" + item.title + "&price" + index + "=" + item.price;
-        }).join("&");
-
-        // Redirect to the payment page with the cart data as URL parameters
-        window.location.href = "Payment.html?" + cartParams;
-      }
+                // Redirect to the payment page with the cart data as URL parameters
+                window.location.href = "Payment.html?" + cartParams;
+            }
         </script>
-        
-        <jsp:include flush="true" page="Footer.jsp" />
     </body>
+    <footer>
+        <p>&copy; MiniCoop 2023</p>
+    </footer>
 </html>

@@ -8,6 +8,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Payment</title>
         <link rel="stylesheet" type="text/css" href="Payment.css">
+
+        <style>
+
+            footer {
+                background-color: #24252a;
+                height: 70px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 30px;
+            }
+
+            p {
+                color: white;
+            }
+        </style>
     </head>
 
     <!-- Navigation Bar -->
@@ -66,7 +82,7 @@
                         <br>
                         Please submit your receipt here:
                         <input type="file" class='input-field'>
-                        <a href="#" type="button" class='pay-btn' onclick="handleCheckout()">Checkout</a>
+                        <a href="Success.html" type="button" class='pay-btn'>Checkout</a>
                     </div>
                 </div>
             </div>
@@ -113,32 +129,10 @@
             }
 
             totalPriceContainer.textContent = "$" + totalPrice.toFixed(2);
-
-            function handleCheckout() {
-                // Send an AJAX request to delete all data from the cart table
-                var xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === XMLHttpRequest.DONE) {
-                        if (xhr.status === 200) {
-                            // Successful response
-                            console.log("Cart data deleted successfully.");
-                            // Redirect to the success page
-                            window.location.href = "Success.html";
-                        } else {
-                            // Error handling
-                            console.error("Error deleting cart data.");
-                        }
-                    }
-                };
-                xhr.open("GET", "deleteAllData.jsp", true);
-                xhr.send();
-            }
-
-            // Add an event listener to the checkout button
-            var checkoutButton = document.getElementById("checkoutButton");
-            checkoutButton.addEventListener("click", handleCheckout);
         </script>
 
     </body>
-
+    <footer>
+        <p>&copy; MiniCoop 2023</p>
+    </footer>
 </html>

@@ -15,7 +15,7 @@
         <title>Contact Us Page</title>
     </head>
     <body>
-        <jsp:useBean id="contact" class="MiniCoop.com.ContactUs" scope="request"/>
+        <jsp:useBean id="contact" class="com.model.ContactUs" scope="request"/>
         
         <%
             contact.setName(request.getParameter("name"));

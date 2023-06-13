@@ -15,7 +15,7 @@
         <title>Register Page</title>
     </head>
     <body>
-        <jsp:useBean id="customer" class="MiniCoop.com.Register" scope="request"/>
+        <jsp:useBean id="customer" class="com.model.Register" scope="request"/>
 
         <%
             customer.setName(request.getParameter("name"));

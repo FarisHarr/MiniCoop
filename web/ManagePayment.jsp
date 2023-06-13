@@ -9,7 +9,7 @@
 <%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
-    <jsp:useBean id="receiptnum" class="MiniCoop.com.Reciept" scope="request"/>
+    <jsp:useBean id="receiptnum" class="com.model.Reciept" scope="request"/>
 
     <head>
         <meta charset="UTF-8">
