@@ -26,10 +26,10 @@
             
             Class.forName("com.mysql.jdbc.Driver");
             
-            String myURL = "jdbc:mysql://localhost/minicoop";
+            String myURL = "jdbc:mysql://localhost/minicoop2";
             Connection myConnection = DriverManager.getConnection(myURL, "root", "admin");
             
-            String sInsertQry = "INSERT INTO staff(email, password, name, phone, role) VALUES (?,?,?,?,?) ";
+            String sInsertQry = "INSERT INTO staff(staff_Email, staff_Password, staff_Name, staff_Phone, staff_Role) VALUES (?,?,?,?,?) ";
             
             PreparedStatement myPS = myConnection.prepareStatement(sInsertQry);
             

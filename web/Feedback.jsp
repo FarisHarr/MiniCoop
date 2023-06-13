@@ -65,7 +65,7 @@
                   try {
                     // Establish the database connection
                     Class.forName("com.mysql.jdbc.Driver");
-                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");
 
                     // Execute the SQL query to retrieve sales data
                     String sql = "SELECT * FROM contactus";
@@ -77,9 +77,9 @@
                 %>
                 <tr>
                    
-                    <td><%= resultSet.getString("name") %></td>
-                    <td><%= resultSet.getString("email") %></td>
-                    <td><%= resultSet.getString("phone") %></td>
+                    <td><%= resultSet.getString("cust_Name") %></td>
+                    <td><%= resultSet.getString("cust_Email") %></td>
+                    <td><%= resultSet.getString("cust_Phone") %></td>
                     <td><%= resultSet.getString("message") %></td>
                   
                 </tr>

@@ -63,9 +63,8 @@
                     <tr>
                         <th>Receipt Number</th>
                         <th>Customer Name</th>
-                        <th>Amount</th>
-                        <th>Payment Method</th>
-                        <th>Status</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
                     </tr>
                 </thead>
 
@@ -78,7 +77,7 @@
                             ResultSet rs;
                             PreparedStatement st;
                             Class.forName("com.mysql.jdbc.Driver");
-                            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
+                            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");
                             String receiptid = receiptnum.getReceiptNumber();
 
                             if (receiptid == null || receiptid.isEmpty()) {
@@ -88,17 +87,16 @@
                                 while (rs.next()) {
                     %>
                     <tr>
-                        <td><%=rs.getInt("receipt_id")%></td>
-                        <td><%=rs.getString("customer_name")%></td>
-                        <td><%=rs.getDouble("amount")%></td>
-                        <td><%=rs.getString("payment_method")%></td>
-                        <td><%=rs.getString("status")%></td>
+                        <td><%=rs.getInt("receipt_ID")%></td>
+                        <td><%=rs.getString("cust_Name")%></td>
+                        <td><%=rs.getString("prod_Name")%></td>
+                        <td><%=rs.getString("prod_Qty")%></td>
                     </tr>
 
                     <%
                         }
                     } else {
-                        st = con.prepareStatement("SELECT * FROM receipt where receipt_id =?");
+                        st = con.prepareStatement("SELECT * FROM receipt where receipt_ID =?");
 
                         st.setString(1, receiptnum.getReceiptNumber());
                         rs = st.executeQuery();
@@ -106,11 +104,10 @@
                     %>
 
                     <tr>
-                        <td><%=rs.getInt("receipt_id")%></td>
-                        <td><%=rs.getString("customer_name")%></td>
-                        <td><%=rs.getDouble("amount")%></td>
-                        <td><%=rs.getString("payment_method")%></td>
-                        <td><%=rs.getString("status")%></td>
+                        <td><%=rs.getInt("receipt_ID")%></td>
+                        <td><%=rs.getString("cust_Name")%></td>
+                        <td><%=rs.getString("prod_Name")%></td>
+                        <td><%=rs.getString("prod_Qty")%></td>
                     </tr>
                     <%
                                 }

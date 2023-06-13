@@ -43,45 +43,21 @@
         </style>
     </head>
 
-    <!--Navigation Bar-->
-<!--    <body>
-        <header>
-            <div class="main">
-                <img class="logo" src="logoRe.png" alt="logo">
-                <nav>
-                    <ul class="nav_links">
-                        <li><a href="ManageStaff.jsp">Manage Staff</a></li>
-                        <li><a href="ViewSalesReport.jsp">View Sales</a></li>
-                        <li><a href="Feedback.jsp">Feedback</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <nav>
-                <li class="dropdown">
-                    <a class="nav-link">Account</a>
-                    <ul class="dropdown-content">
-                                                <li><a href="OwnerProfile.html">Edit Information</a></li>
-                        <li><a href="StartPage.html">Sign Out</a></li>
-                    </ul>
-                </li>
-            </nav>
-        </header>-->
-
         <%
-            String staffID = request.getParameter("id");
+            String staffID = request.getParameter("staff_ID");
             String action = request.getParameter("action");
 
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");
                 Statement st = con.createStatement();
-                ResultSet rs = st.executeQuery("SELECT * FROM staff WHERE id ='" + staffID + "'");
+                ResultSet rs = st.executeQuery("SELECT * FROM staff WHERE staff_ID ='" + staffID + "'");
 
                 if (rs.next()) {
-                    String staffName = rs.getString("name");
-                    String email = rs.getString("email");
-                    String phone = rs.getString("phone");
-                    String role = rs.getString("role");
+                    String staffName = rs.getString("staff_Name");
+                    String email = rs.getString("staff_Email");
+                    String phone = rs.getString("staff_Phone");
+                    String role = rs.getString("staff_Role");
         %>
         <div class="popup-content">
             <form action="UpdateStaff.jsp" method="post">

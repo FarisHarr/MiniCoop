@@ -25,9 +25,10 @@
 
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");
                 Statement st = con.createStatement();
-                int rowsUpdated = st.executeUpdate("UPDATE staff SET name = '" + staffName + "', email = '" + email + "', phone = '" + phone + "', role = '" + role + "' WHERE id ='" + staffID + "'");
+                int rowsUpdated = st.executeUpdate("UPDATE staff SET staff_Name = '" + staffName + "', staff_Email = '" + email + "', staff_Phone = '" + phone + "', "
+                + "staff_Role = '" + role + "' WHERE staff_ID ='" + staffID + "'");
 
                 if (rowsUpdated > 0) {
                     out.println("Staff updated successfully.");

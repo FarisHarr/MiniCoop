@@ -21,7 +21,7 @@
 
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");
                 PreparedStatement st = con.prepareStatement("UPDATE product SET prod_ID=?, prod_Name=?, prod_Qty=?, prod_Price=? WHERE prod_ID=?");
                 st.setString(1, productId);
                 st.setString(2, productName);

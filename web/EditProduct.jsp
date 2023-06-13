@@ -20,7 +20,7 @@
             if (productId != null) {
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");
                     PreparedStatement st = con.prepareStatement("SELECT * FROM product WHERE prod_ID = ?");
                     st.setString(1, productId);
                     ResultSet rs = st.executeQuery();

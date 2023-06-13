@@ -21,7 +21,7 @@
         Class.forName("com.mysql.jdbc.Driver");
 
         // Create a database connection
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");
 
         // Retrieve the cart data from the request parameters
         int itemId = Integer.parseInt(request.getParameter("id"));
@@ -29,24 +29,24 @@
         String itemTitle = request.getParameter("title");
 
         // Save the item data to the sales table
-        String selectSalesQuery = "SELECT * FROM sales WHERE id=?";
+        String selectSalesQuery = "SELECT * FROM sales WHERE prod_ID=?";
         PreparedStatement selectSalesStatement = connection.prepareStatement(selectSalesQuery);
         selectSalesStatement.setInt(1, itemId);
         ResultSet salesResultSet = selectSalesStatement.executeQuery();
 
         if (salesResultSet.next()) {
             // If the item already exists in the sales table, update the quantity
-            int currentSalesQuantity = salesResultSet.getInt("quantity");
+            int currentSalesQuantity = salesResultSet.getInt("prod_Qty");
             int newSalesQuantity = currentSalesQuantity + 1;
 
-            String updateSalesQuery = "UPDATE sales SET quantity=? WHERE id=?";
+            String updateSalesQuery = "UPDATE sales SET prod_Qty=? WHERE prod_ID=?";
             PreparedStatement updateSalesStatement = connection.prepareStatement(updateSalesQuery);
             updateSalesStatement.setInt(1, newSalesQuantity);
             updateSalesStatement.setInt(2, itemId);
             updateSalesStatement.executeUpdate();
         } else {
             // If the item does not exist in the sales table, insert a new row
-            String insertSalesQuery = "INSERT INTO sales (id, title, price, quantity) VALUES (?, ?, ?, ?)";
+            String insertSalesQuery = "INSERT INTO sales (sales_ID, prod_Name, prod_Price, prod_Qty) VALUES (?, ?, ?, ?)";
             PreparedStatement insertSalesStatement = connection.prepareStatement(insertSalesQuery);
             insertSalesStatement.setInt(1, itemId);
             insertSalesStatement.setString(2, itemTitle);

@@ -28,7 +28,7 @@
                 <nav>
                     <ul class="nav_links">
                         <li><a href="homePage.html">Home</a></li>
-                        <li><a href="ProductPage.html">Product</a></li>
+                        <li><a href="ProductPage1.html">Product</a></li>
                         <li><a href="ManageContactUs.html">Contact Us</a></li>
                     </ul>
                 </nav>
@@ -37,7 +37,7 @@
                 <li class="dropdown">
                     <a class="nav-link">Account</a>
                     <ul class="dropdown-content">
-                        <li><a href="CustomerProfile.jsp">Edit Information</a></li>
+                        <li><a href="CustomerProfile.html">Edit Information</a></li>
                         <li><a href="StartPage.html">Sign Out</a></li>
                     </ul>
                 </li>
@@ -130,23 +130,23 @@
                 cart.push({...categories[a]});
                 displaycart();
 
-                //send an AJAX request to saveCart.jsp
+                // Send an AJAX request to the SaveServlet
                 var xhr = new XMLHttpRequest();
-                xhr.open("POST", "SaveCart.jsp", true);
+                xhr.open("POST", "savecart", true);
                 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-                //create a parameter string with the cart data
+                // Create a parameter string with the cart data
                 var params = "id=" + categories[a].id +
                         "&price=" + categories[a].price +
                         "&title=" + categories[a].title;
 
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState == 4 && xhr.status == 200) {
-                        console.log(xhr.responseText); //handle the response from the server
+                        console.log(xhr.responseText); // Handle the response from the server
                     }
                 };
 
-                //send the request
+                // Send the request
                 xhr.send(params);
             }
 
@@ -154,24 +154,20 @@
                 var item = cart[a];
                 var itemId = item.id;
 
-                //send an AJAX request to deleteCart.jsp
+                // Create an XMLHttpRequest object
                 var xhr = new XMLHttpRequest();
-                xhr.open("POST", "DeleteCart.jsp", true);
-                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-                //create a parameter string with the item ID
-                var params = "id=" + itemId;
+                xhr.open("GET", "deleteitem?id=" + itemId, true);
 
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState == 4 && xhr.status == 200) {
-                        //on success, remove the item from the cart and update the display
+                        // On success, remove the item from the cart and update the display
                         cart.splice(a, 1);
                         displaycart();
                     }
                 };
 
-                //send the request
-                xhr.send(params);
+                // Send the request
+                xhr.send();
             }
 
             function displaycart() {

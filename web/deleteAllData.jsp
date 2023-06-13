@@ -15,7 +15,7 @@
         Class.forName("com.mysql.jdbc.Driver");
 
         // Create a database connection
-        String url = "jdbc:mysql://localhost/minicoop";
+        String url = "jdbc:mysql://localhost/minicoop2";
         String username = "root";
         String password = "admin";
         connection = DriverManager.getConnection(url, username, password);

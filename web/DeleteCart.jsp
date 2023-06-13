@@ -16,7 +16,7 @@
         Class.forName("com.mysql.jdbc.Driver");
 
         //create a database connection
-        String url = "jdbc:mysql://localhost/minicoop";
+        String url = "jdbc:mysql://localhost/minicoop2";
         String username = "root";
         String password = "admin";
         connection = DriverManager.getConnection(url, username, password);
@@ -25,7 +25,7 @@
         int itemIdToDelete = Integer.parseInt(request.getParameter("id"));
 
         //delete the item from the database
-        String deleteQuery = "DELETE FROM cart WHERE id = ?";
+        String deleteQuery = "DELETE FROM cart WHERE cart_ID = ?";
         PreparedStatement deleteStatement = connection.prepareStatement(deleteQuery);
         deleteStatement.setInt(1, itemIdToDelete);
         deleteStatement.executeUpdate();

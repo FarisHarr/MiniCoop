@@ -27,7 +27,7 @@
 
                 // Prepare the SQL statement
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");
                 PreparedStatement st = con.prepareStatement("INSERT INTO product (prod_ID, prod_Name, prod_Qty, prod_Price) VALUES (?, ?, ?, ?)");
                 st.setInt(1, addprod.getProductcode());
                 st.setString(2, addprod.getProductname());

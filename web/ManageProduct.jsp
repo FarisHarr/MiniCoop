@@ -78,7 +78,7 @@
                         ResultSet rs;
                         PreparedStatement st;
                         Class.forName("com.mysql.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");
 
                         st = con.prepareStatement("SELECT * FROM product");
                         rs = st.executeQuery();
@@ -92,7 +92,7 @@
                     <td><%=rs.getDouble("prod_Price")%></td>
                     <td>
                         <button onclick="location.href = 'EditProduct.jsp?productId=<%= rs.getString("prod_ID")%>'">Update</button>
-                        <button onclick="deleteProduct('<%= rs.getString("prod_ID")%>')">Delete</button>
+                        <button onclick="location.href = 'DeleteProduct.jsp?productId=<%= rs.getString("prod_ID")%>'">Delete</button>
                     </td>
                 </tr>
                 <%
@@ -155,37 +155,8 @@
                 xhr.send("productcode=" + encodeURIComponent(productCode) + "&price=" + encodeURIComponent(price));
             }
 
-
-
-            function deleteProduct(productId) {
-                // Create XMLHttpRequest object
-                const xhr = new XMLHttpRequest();
-
-                // Configure the request
-                xhr.open("POST", "DeleteProduct.jsp", true);
-
-                // Set the request header
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-                // Define the callback function
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === XMLHttpRequest.DONE) {
-                        if (xhr.status === 200) {
-                            // Request was successful, navigate back to ManageProduct.jsp
-                            window.location.href = "ManageProduct.jsp";
-                        } else {
-                            // Request failed, handle the error
-                            console.error("Error: " + xhr.status);
-                        }
-                    }
-                };
-
-
-                // Send the request
-                xhr.send("productId=" + encodeURIComponent(productId));
-            }
         </script>
-        
+
         <jsp:include flush="true" page="Footer.jsp" />
     </body>
 </html>

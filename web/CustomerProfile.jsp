@@ -52,15 +52,15 @@
             if (customerID != null) {
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
-                    PreparedStatement ps = con.prepareStatement("SELECT * FROM customer WHERE id = ? ");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");
+                    PreparedStatement ps = con.prepareStatement("SELECT * FROM customer WHERE cust_ID = ? ");
                     ps.setString(1, customerID);
                     ResultSet rs = ps.executeQuery();
 
                     if (rs.next()) {
-                        String email = rs.getString("email");
-                        String customerName = rs.getString("name");
-                        String phone = rs.getString("phone");
+                        String email = rs.getString("cust_Email");
+                        String customerName = rs.getString("cust_Name");
+                        String phone = rs.getString("cust_Phone");
         %>
         <!-- Page -->
         <div class="container">

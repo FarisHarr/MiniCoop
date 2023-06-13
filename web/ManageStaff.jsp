@@ -107,16 +107,16 @@
                     <%
                         try {
                             Class.forName("com.mysql.jdbc.Driver");
-                            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
+                            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");
                             Statement st = con.createStatement();
                             ResultSet rs = st.executeQuery("SELECT * FROM staff");
 
                             while (rs.next()) {
-                                String staffID = rs.getString("id");
-                                String staffName = rs.getString("name");
-                                String email = rs.getString("email");
-                                String phone = rs.getString("phone");
-                                String role = rs.getString("role");
+                                String staffID = rs.getString("staff_ID");
+                                String staffName = rs.getString("staff_Name");
+                                String email = rs.getString("staff_Email");
+                                String phone = rs.getString("staff_Phone");
+                                String role = rs.getString("staff_Role");
 
                                 out.println("<tr>");
                                 out.println("<td>" + staffID + "</td>");
@@ -125,11 +125,11 @@
                                 out.println("<td>" + phone + "</td>");
                                 out.println("<td>" + role + "</td>");
                                 out.println("<td>");
-                                out.println("<a href=\"EditStaff.jsp?id=" + staffID + "\">"
+                                out.println("<a href=\"EditStaff.jsp?staff_ID=" + staffID + "\">"
                                         + "<img src=\"editicon.png\" alt=\"edit\"></a>");
                                 out.println("</td>");
                                 out.println("<td>");
-                                out.println("<a href=\"DeleteStaff.jsp?id=" + staffID + "\">"
+                                out.println("<a href=\"DeleteStaff.jsp?staff_ID=" + staffID + "\">"
                                         + "<img src=\"deleteicon.png\" alt=\"delete\"></a>");
                                 out.println("</td>");
                                 out.println("</tr>");

@@ -65,7 +65,7 @@
                   try {
                     // Establish the database connection
                     Class.forName("com.mysql.jdbc.Driver");
-                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");
 
                     // Execute the SQL query to retrieve sales data
                     String sql = "SELECT * FROM sales";
@@ -76,11 +76,11 @@
                     while (resultSet.next()) {
                 %>
                 <tr>
-<!--                    <td><%= resultSet.getString("sales_id") %></td>-->
-                    <td><%= resultSet.getString("title") %></td>
-                    <td><%= resultSet.getInt("quantity") %></td>
-                    <td><%= resultSet.getDouble("price") %></td>
-                    <td><%= resultSet.getInt("quantity") * resultSet.getDouble("price") %></td>
+<!--                    <td><%= resultSet.getString("sales_ID") %></td>-->
+                    <td><%= resultSet.getString("prod_Name") %></td>
+                    <td><%= resultSet.getInt("prod_Qty") %></td>
+                    <td><%= resultSet.getDouble("prod_Price") %></td>
+                    <td><%= resultSet.getInt("prod_Qty") * resultSet.getDouble("prod_Price") %></td>
                 </tr>
                 <%
                     }

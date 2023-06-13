@@ -3,14 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.dao;
-import java.sql.*;
 
 /**
  *
  * @author FarisHarr
  */
-public class ProductDAO {
-    private static final String DB_URL = "jdbc:mysql://localhost/minicoop";
+import java.sql.*;
+
+public class DeleteAllDataDAO {
+
+    private static final String DB_URL = "jdbc:mysql://localhost/minicoop2";
     private static final String DB_USERNAME = "root";
     private static final String DB_PASSWORD = "admin";
 

@@ -1,29 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package com.controller;
 
-import com.dao.ProductDAO;
+import com.dao.DeleteAllDataDAO;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 import javax.servlet.annotation.WebServlet;
 
-/**
- *
- * @author FarisHarr
- */
-@WebServlet("/product")
-public class ProductServlet extends HttpServlet {
+@WebServlet("/deleteall")
+public class DeleteAllDataServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
         try {
-            ProductDAO.deleteAllData();
+            DeleteAllDataDAO.deleteAllData();
             out.println("All data in the cart table has been deleted successfully.");
         } catch (Exception e) {
             e.printStackTrace();
@@ -31,6 +23,3 @@ public class ProductServlet extends HttpServlet {
         }
     }
 }
-
-  
-

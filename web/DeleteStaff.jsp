@@ -75,22 +75,22 @@
     </head>
     <body>
         <%-- Retrieve the staff ID from the request parameter --%>
-        <% String staffID = request.getParameter("id"); %>
+        <% String staffID = request.getParameter("staff_ID"); %>
 
         <%-- Check if the staff ID is present --%>
         <% if (staffID != null && !staffID.isEmpty()) {
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
-                    PreparedStatement pst = con.prepareStatement("SELECT * FROM staff WHERE id = ?");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");
+                    PreparedStatement pst = con.prepareStatement("SELECT * FROM staff WHERE staff_ID = ?");
                     pst.setString(1, staffID);
                     ResultSet rs = pst.executeQuery();
 
                     if (rs.next()) {
-                        String staffName = rs.getString("name");
-                        String email = rs.getString("email");
-                        String phone = rs.getString("phone");
-                        String role = rs.getString("role");
+                        String staffName = rs.getString("staff_Name");
+                        String email = rs.getString("staff_Email");
+                        String phone = rs.getString("staff_Phone");
+                        String role = rs.getString("staff_Role");
 
         %>
         <div class="popup-content">
@@ -144,8 +144,8 @@
             if (action != null && action.equals("Delete")) {
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop", "root", "admin");
-                    PreparedStatement pst = con.prepareStatement("DELETE FROM staff WHERE id = ?");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");
+                    PreparedStatement pst = con.prepareStatement("DELETE FROM staff WHERE staff_ID = ?");
                     pst.setString(1, staffID);
                     int rowsDeleted = pst.executeUpdate();
 

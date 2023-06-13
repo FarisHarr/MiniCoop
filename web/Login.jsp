@@ -43,10 +43,10 @@
                     if (email != null && password != null) {
                         try {
                             Class.forName("com.mysql.jdbc.Driver");
-                            String myURL = "jdbc:mysql://localhost/minicoop";
+                            String myURL = "jdbc:mysql://localhost/minicoop2";
                             Connection myConnection = DriverManager.getConnection(myURL, "root", "admin");
 
-                            String sSelectQry = "SELECT * FROM customer WHERE email = ? AND password = ?";
+                            String sSelectQry = "SELECT * FROM customer WHERE cust_Email = ? AND cust_Password = ?";
                             PreparedStatement myPS = myConnection.prepareStatement(sSelectQry);
                             myPS.setString(1, email);
                             myPS.setString(2, password);
@@ -55,7 +55,7 @@
                             if (resultSet.next()) {
                                 // User found, set session and redirect to home page
                                 HttpSession loginsession = request.getSession();
-                                session.setAttribute("customerID", resultSet.getString("id"));
+                                session.setAttribute("customerID", resultSet.getString("cust_ID"));
                                 response.sendRedirect("homePage.html");
                             } else {
                                 // User not found, display error message

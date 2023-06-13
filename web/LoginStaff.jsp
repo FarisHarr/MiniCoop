@@ -44,10 +44,10 @@
                 if (email != null && password != null && userType != null) {
                     try {
                         Class.forName("com.mysql.jdbc.Driver");
-                        String myURL = "jdbc:mysql://localhost/minicoop";
+                        String myURL = "jdbc:mysql://localhost/minicoop2";
                         Connection myConnection = DriverManager.getConnection(myURL, "root", "admin");
 
-                        String sSelectQry = "SELECT * FROM staff WHERE email = ? AND password = ? AND role = ?";
+                        String sSelectQry = "SELECT * FROM staff WHERE staff_Email = ? AND staff_Password = ? AND staff_Role = ?";
                         PreparedStatement myPS = myConnection.prepareStatement(sSelectQry);
                         myPS.setString(1, email);
                         myPS.setString(2, password);
