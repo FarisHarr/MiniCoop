@@ -73,6 +73,7 @@
 
                     <%
                         try {
+                        
                             receiptnum.setReceiptNumber(request.getParameter("receiptNumber"));
                             ResultSet rs;
                             PreparedStatement st;

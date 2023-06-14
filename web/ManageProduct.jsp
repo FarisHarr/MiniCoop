@@ -55,7 +55,7 @@
                     <input type="text" name="productname" placeholder="Product Name" required><br><br>
                     <input type="number" name="quantity" placeholder="Quantity" required><br><br>
                     <input type="number" step="any" name="price" placeholder="Price"><br><br>
-                    <input type="submit" value="Add Product"/>
+                    <input class="add" type="submit" value="Add Product"/>
                 </form>
             </div>
 
@@ -91,8 +91,8 @@
                     <td><%=rs.getInt("prod_Qty")%></td>
                     <td><%=rs.getDouble("prod_Price")%></td>
                     <td>
-                        <button onclick="location.href = 'EditProduct.jsp?productId=<%= rs.getString("prod_ID")%>'">Update</button>
-                        <button onclick="location.href = 'DeleteProduct.jsp?productId=<%= rs.getString("prod_ID")%>'">Delete</button>
+                        <button class="update" onclick="location.href = 'EditProduct.jsp?productId=<%= rs.getString("prod_ID")%>'">Update</button>
+                        <button class="delete" onclick="location.href = 'DeleteProduct.jsp?productId=<%= rs.getString("prod_ID")%>'">Delete</button>
                     </td>
                 </tr>
                 <%

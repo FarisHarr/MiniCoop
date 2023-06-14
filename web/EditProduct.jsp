@@ -42,7 +42,7 @@
                 <input type="number" name="quantity" value="<%= quantity%>" placeholder="Quantity" required><br><br>
                 <label>Price</label>
                 <input type="number" step="any" name="price" value="<%= price%>" placeholder="Price" required><br><br>
-                <input type="submit" value="Update Product">
+                <input class="update" type="submit" value="Update Product">
             </form>
         </div>
         <%
