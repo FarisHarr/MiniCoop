@@ -46,7 +46,7 @@
         </header>
 
         <%
-//            HttpSession loginsession = request.getSession();
+//           HttpSession loginsession = request.getSession();
             String customerID = (String) session.getAttribute("customerID");
 
             if (customerID != null) {

@@ -222,6 +222,24 @@ div.table{
     }
 }
 
+.print-button {
+    margin-top: 20px;
+    text-align: center;
+    display: grid;
+    place-items: center;
+}
+
+.print-button button {
+    width: 120px;
+    height: 35px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
 /* Footer */
 .footer {
     position: fixed;
