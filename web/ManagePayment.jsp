@@ -46,7 +46,7 @@
 
         </header>
 
-        <div class="form-group" style="margin: 20px;">
+        <div class="form-group" style="margin: 15px;">
             <form id="form" action="" method="POST">
                 <label for="receiptNumber">Receipt Number</label>
                 <input type="text" id="inputreceiptNumber" name="receiptNumber">
