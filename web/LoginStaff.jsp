@@ -12,13 +12,13 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="LoginStaff.css">
+        <link rel="stylesheet" type="text/css" href="CSS/LoginStaff.css">
         <title>Login Page</title>
     </head>
     <body>
         <div class="container">
             <div class="side">
-                <img src="logoRe.png" alt="">
+                <img src="IMG/logoRe.png" alt="">
             </div>
             <form action="" class="form" method="POST">
                 <h2>LOG IN</h2>

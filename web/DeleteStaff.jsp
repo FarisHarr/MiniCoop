@@ -120,7 +120,7 @@
             </table>
 
             <form action="DeleteStaff.jsp" method="post">
-                <input type="hidden" name="id" value="<%= staffID%>">
+                <input type="hidden" name="staff_ID" value="<%= staffID%>">
                 <input type="submit" name="action" value="Delete">
                 <input type="submit" name="action" value="Cancel">
             </form>

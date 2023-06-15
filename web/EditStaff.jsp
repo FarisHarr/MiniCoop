@@ -12,7 +12,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Edit Staff</title>
-        <link rel="stylesheet" type="text/css" href="ManageStaff.css">
+        <link rel="stylesheet" type="text/css" href="CSS/ManageStaff.css">
         <style>
 
             input.submit {

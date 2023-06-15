@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.dao.ReceiptDAO;
 import com.dao.SaveDAO;
 
 import java.io.IOException;
@@ -23,6 +24,9 @@ public class SaveServlet extends HttpServlet {
         SaveDAO saveDAO = new SaveDAO();
         saveDAO.saveItemToCartFromServlet(itemId, itemPrice, itemTitle);
 
+        ReceiptDAO receiptDAO = new ReceiptDAO();
+        receiptDAO.AddDataToReceipt(itemId, itemPrice, itemTitle);
+        
         response.getWriter().println("Item saved successfully!");
     }
 }

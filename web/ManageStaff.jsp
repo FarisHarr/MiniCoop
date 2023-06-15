@@ -14,14 +14,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Owner</title>
-        <link rel="stylesheet" type="text/css" href="ManageStaff.css">
+        <link rel="stylesheet" type="text/css" href="CSS/ManageStaff.css">
     </head>
 
     <!--Navigation Bar-->
     <body>
         <header>
             <div class="main">
-                <img class="logo" src="logoRe.png" alt="logo">
+                <img class="logo" src="IMG/logoRe.png" alt="logo">
                 <nav>
                     <ul class="nav_links">
                         <li><a href="ManageStaff.jsp">Manage Staff</a></li>
@@ -49,7 +49,7 @@
                 <form class="search-bar">
                     <input type="search" placeholder="Search..." />
                     <button type="submit">
-                        <img src="search (1).png" alt="searchlogo" />
+                        <img src="IMG/search (1).png" alt="searchlogo" />
                     </button>
                 </form>
             </div>
@@ -126,11 +126,11 @@
                                 out.println("<td>" + role + "</td>");
                                 out.println("<td>");
                                 out.println("<a href=\"EditStaff.jsp?staff_ID=" + staffID + "\">"
-                                        + "<img src=\"editicon.png\" alt=\"edit\"></a>");
+                                        + "<img src=\"IMG/editicon.png\" alt=\"edit\"></a>");
                                 out.println("</td>");
                                 out.println("<td>");
                                 out.println("<a href=\"DeleteStaff.jsp?staff_ID=" + staffID + "\">"
-                                        + "<img src=\"deleteicon.png\" alt=\"delete\"></a>");
+                                        + "<img src=\"IMG/deleteicon.png\" alt=\"delete\"></a>");
                                 out.println("</td>");
                                 out.println("</tr>");
                             }
