@@ -31,7 +31,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .content h1 {
   font-size: 65px;
   font-family: 'Arial', sans-serif;
-  color: whitesmoke;
+  color: lightgoldenrodyellow;
   text-shadow: 10px 4px 10px #000000;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -63,9 +63,9 @@ span {
     transition: 0.5s;
 }
 button:hover {
-    border: 1px solid #0713fd;
-    color: blue;
-    background: linear-gradient(to bottom, orange, #660066);
+    border: 1px solid black;
+    color: black;
+    background: linear-gradient(to bottom, lightgoldenrodyellow, gray);
     cursor: pointer;
 }
 button a {

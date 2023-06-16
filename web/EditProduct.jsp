@@ -35,7 +35,7 @@
             <h2>Edit Product <%=productName%></h2><br>
             <form action="UpdateProduct.jsp" method="POST">
                 <label>Product ID</label>
-                <input type="hidden" name="productId" value="<%= productId%>"><br><br>
+                <input type="text" name="productId" value="<%= productId%>" readonly><br><br>
                 <label>Product Name</label>
                 <input type="text" name="productName" value="<%= productName%>" size="10%" placeholder="Product Name" required><br><br>
                 <label>Product Quantity</label>

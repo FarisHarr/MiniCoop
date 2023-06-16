@@ -74,15 +74,15 @@
                 </div>
                 <div class="profile-details">
                     <label for="Name">Name:</label>
-                    <input type="text" name="name" value="<%= customerName%>" class="box">
+                    <input type="text" name="name" value="<%= customerName%>" class="box" readonly>
                 </div>
                 <div class="profile-details">
                     <label for="email">Email:</label>
-                    <input type="email" name="email" value="<%= email%>" class="box">
+                    <input type="email" name="email" value="<%= email%>" class="box" readonly>
                 </div>
                 <div class="profile-details">
                     <label for="phone">Phone Number:</label>
-                    <input type="text" name="phone" value="<%= phone%>" class="box">
+                    <input type="text" name="phone" value="<%= phone%>" class="box" readonly>
                 </div>
                 <a href="EditCustomer.jsp?id=<%= customerID%>">
                     <button class="profile-update-button">Update</button>
