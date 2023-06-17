@@ -63,7 +63,7 @@
         <!-- Page -->
         <div class="popup-content">
             <form action="UpdateCustomer.jsp" method="post">
-                <h3>Update Staff</h3>
+                <h3>Update Customer</h3>
                 <input type="hidden" name="id" value="<%= customerID %>">
                 <br>
                 <label for="Name"> Name:</label>
