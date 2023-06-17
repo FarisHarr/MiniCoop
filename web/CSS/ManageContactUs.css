@@ -251,7 +251,7 @@ ul {
 .submit-button {
     align-self: center;
     justify-self: end;
-    border-radius: 16px;
+    /*border-radius: 16px;*/
 
 }
 
