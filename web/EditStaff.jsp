@@ -71,7 +71,8 @@
                 <input type="email" name="email" value="<%= email%>"><br>
                 <br>
                 <label for="phone">Phone Number:</label>
-                <input type="text" name="phone" value="<%= phone%>"><br>
+                <input type="text" name="phone" value="<%= phone%>" oninput="this.value = this.value.replace(/[^0-9]/g, '')" 
+                       placeholder="Enter Phone Number" required><br>
                 <br>
                 <label for="role">Roles :</label>
                 <select id="role" name="role">

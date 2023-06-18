@@ -64,24 +64,26 @@
                 <br><br>
                 <form action="RegisterStaff.jsp" method="POST">
                     <label for="email">Email :</label>
-                    <input type="text" id="email" name="email" required>
+                    <input type="text" id="email" name="email" placeholder="Enter Your Email" required>
                     <br><br>
                     <label for="password">Password :</label>
-                    <input type="text" id="password" name="password" required>
+                    <input type="text" id="password" name="password" placeholder="Enter Password" required>
                     <br><br>
                     <label for="name">Name :</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" placeholder="Enter Your Name" required>
                     <br><br>
                     <label for="phone">Phone Number :</label>
-                    <input type="text" id="phone" name="phone" required>
-                    <br><br>
+                    <input type="text" name="phone" size="20" oninput="this.value = this.value.replace(/[^0-9]/g, '')" 
+                           placeholder="Enter Phone Number" required><br>
+
+                    <br>
                     <label for="role">Roles :</label>
                     <select id="role" name="role">
                         <option value="Staff">Staff</option>
                         <option value="Store Manager">Store Manager</option>
                         <option value="Owner">Owner</option>
                     </select>
-                    <br><br>
+                    <br><br><br>
                     <div class="submit-button">
                     <input class="submit" type="submit" value="Save">
                     </div>
