@@ -26,8 +26,10 @@
                 <div class="radio-group">
                     <input type="radio" id="staff" name="user-type" value="staff">
                     <label for="staff">Staff</label>
-                    <input type="radio" id="owner" name="user-type" value="owner">
-                    <label for="owner">Owner</label>
+                    <input type="radio" id="manager" name="user-type" value="manager">
+                    <label for="staff">Manager</label>
+<!--                    <input type="radio" id="owner" name="user-type" value="owner">
+                    <label for="owner">Owner</label>-->
                 </div>
                 <input type="text" id="email" name="email" class="box" placeholder="Enter Email">
                 <input type="password" id="password" name="password" class="box" placeholder="Enter Password">
@@ -58,10 +60,14 @@
                             if (userType.equals("staff")) {
                                 // Redirect to staff page
                                 response.sendRedirect("ManagePayment.jsp");
-                            } else if (userType.equals("owner")) {
+                            } else if (userType.equals("manager")) {
                                 // Redirect to owner page
-                                response.sendRedirect("ManageStaff.jsp");
-                            }
+                                response.sendRedirect("ManageStock.html");
+                            } 
+//                            else if (userType.equals("owner")) {
+//                                // Redirect to owner page
+//                                response.sendRedirect("ManageStaff.jsp");
+//                            }
                         } else {
                             // User not found, display error message
                             out.println("<span style='color: white;'>Invalid email or password. Please try again.</span>");
@@ -70,7 +76,7 @@
                         myConnection.close();
                     } catch (ClassNotFoundException | SQLException e) {
                         e.printStackTrace();
-                        out.println("An error occurred. Please try again later.");
+                        out.println("<span style='color: red;'>An error occurred. Please try again later.");
                     }
                 }
             }
