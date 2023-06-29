@@ -35,9 +35,6 @@
                 st.setDouble(4, addprod.getPrice());
                 st.executeUpdate();
 
-                // Execute the SQL statement
-                
-
                 // Close the database connection
                 st.close();
                 con.close();

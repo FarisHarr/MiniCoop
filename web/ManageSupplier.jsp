@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ManageProduct
-    Created on : 10 Jun 2023, 11:47:54?pm
+    Document   : ManageSupplier
+    Created on : 29 Jun 2023, 10:01:50?pm
     Author     : FarisHarr
 --%>
 
@@ -14,7 +14,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Staff</title>
+        <title>Manager</title>
         <link rel="stylesheet" type="text/css" href="CSS/ManageProduct.css">
     </head>
 
@@ -26,9 +26,9 @@
                 <img class="logo" src="IMG/logoRe.png" alt="logo">
                 <nav>
                     <ul class="nav_links">
-                    <li><a href="ManageProduct.jsp">Manage Product</a></li>
-                    <li><a href="ManageSupplier.jsp">Manage Supplier</a></li>
-                    <li><a href="Feedback.jsp">Feedback</a></li>
+                        <li><a href="ManageProduct.jsp">Manage Product</a></li>
+                        <li><a href="ManageSupplier.jsp">Manage Supplier</a></li>
+                        <li><a href="Feedback.jsp">Feedback</a></li>
                     </ul>
                 </nav>
             </div>
@@ -43,36 +43,34 @@
         </header>
 
 
-        <h2>Manage Product</h2>
+        <h2>Manage Supplier</h2>
 
-        <button class="register-product-button" onclick="showPopup()">Add Product</button>
+        <button class="register-product-button" onclick="showPopup()">Add Supplier</button>
 
         <div class="popup">
             <div class="popup-content">
                 <span class="close" onclick="hidePopup()">&times;</span>
-                <h3>Add Product</h3>
-                <form id="addProductForm" action="AddProduct.jsp" method="POST">
-                    <input type="text" name="productcode" placeholder="Product Code" required><br><br>
-                    <input type="text" name="productname" placeholder="Product Name" required><br><br>
-                    <input type="number" name="quantity" placeholder="Quantity" required><br><br>
-                    <input type="number" step="any" name="price" placeholder="Price"><br><br>
-                    <input class="add" type="submit" value="Add Product"/>
+                <h3>Add Supplier</h3>
+                <form id="addSupplierForm" action="AddSupplier.jsp" method="POST">
+                    <input type="text" name="suppliercode" placeholder="Supplier Code" required><br><br>
+                    <input type="text" name="suppliername" placeholder="Supplier Name" required><br><br>
+                    <input type="text" name="supplieritems" placeholder="Supplier Items" required><br><br>
+                    <input type="text" name="supplierlocation" placeholder="Supplier Location" required><br><br>
+                    <input class="add" type="submit" value="Add Supplier"/>
                 </form>
             </div>
-
         </div>
 
         <table>
             <thead>
                 <tr>
-                    <th>Product ID</th>
-                    <th>Product Name</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
+                    <th>Supplier ID</th>
+                    <th>Supplier Name</th>
+                    <th>Supplier Items</th>
+                    <th>Location</th>
                     <th>Action</th>
                 </tr>
-            <thead>
-
+            </thead>
             <tbody>
                 <%
                     try {
@@ -81,26 +79,28 @@
                         Class.forName("com.mysql.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");
 
-                        st = con.prepareStatement("SELECT * FROM product");
+                        st = con.prepareStatement("SELECT * FROM supplier");
                         rs = st.executeQuery();
 
                         while (rs.next()) {
                 %>
                 <tr>
-                    <td><%=rs.getString("prod_ID")%></td>
-                    <td><%=rs.getString("prod_Name")%></td>
-                    <td><%=rs.getInt("prod_Qty")%></td>
-                    <td><%=rs.getDouble("prod_Price")%></td>
+                    <td><%= rs.getString("supplier_ID")%></td>
+                    <td><%= rs.getString("supplier_Name")%></td>
+                    <td><%= rs.getString("supplier_Items")%></td>
+                    <td><%= rs.getString("supplier_Location")%></td>
                     <td>
-                        <button class="update" onclick="location.href = 'EditProduct.jsp?productId=<%= rs.getString("prod_ID")%>'">Update</button>
-                        <button class="delete" onclick="location.href = 'DeleteProduct.jsp?productId=<%= rs.getString("prod_ID")%>'">Delete</button>
+
+                        <button class="delete" onclick="location.href = 'DeleteSupplier.jsp?supplierId=<%= rs.getString("supplier_ID")%>'">Delete</button>
+<!--                    <button class="delete" onclick="location.href = 'DeleteSupplier.jsp?supplierId=<%= rs.getString("supplier_ID")%>'">
+  <img src="IMG/deleteicon.png" alt="Delete Icon"> Delete-->
                     </td>
                 </tr>
                 <%
                         }
 
                     } catch (Exception e) {
-
+                        e.printStackTrace();
                     }
                 %>
             </tbody>
@@ -115,21 +115,20 @@
                 document.querySelector(".popup").style.display = "none";
             }
 
-            function addProduct(event) {
+            function addSupplier(event) {
                 event.preventDefault(); // Prevent form submission
 
                 // Get form data
-                const form = document.getElementById("addProductForm");
-                const productCode = form.elements["productcode"].value;
-                const productName = form.elements["productname"].value;
-                const price = form.elements["price"].value;
-                const qty = form.elements["quantity"].value;
+                const form = document.getElementById("addSupplierForm");
+                const supplierName = form.elements["supplierName"].value;
+                const supplierItems = form.elements["supplierItems"].value;
+                const supplierLocation = form.elements["supplierLocation"].value;
 
                 // Create XMLHttpRequest object
                 const xhr = new XMLHttpRequest();
 
                 // Configure the request
-                xhr.open("POST", "AddProduct.jsp", true);
+                xhr.open("POST", "AddSupplier.jsp", true);
 
                 // Set the request header
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -149,11 +148,11 @@
                 };
 
                 // Send the request
-                xhr.send("productcode=" + encodeURIComponent(productCode) + "&price=" + encodeURIComponent(price));
+                xhr.send("suppliercode=" + encodeURIComponent(supplierCode) + "&supplierName=" + encodeURIComponent(supplierName));
             }
-
         </script>
 
+
         <jsp:include flush="true" page="Footer.jsp" />
-    </body>
+    </body> 
 </html>

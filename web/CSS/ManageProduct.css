@@ -309,7 +309,7 @@ button.update{
 button.delete{
     background-color: red;
     color: white;
-    width: 15%;
+    width: 35%;
     height: 40px;
     margin: 10px;
     border-radius: 5px;

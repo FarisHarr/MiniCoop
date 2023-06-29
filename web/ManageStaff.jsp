@@ -130,8 +130,7 @@
                                         + "<img src=\"IMG/editicon.png\" alt=\"edit\"></a>");
                                 out.println("</td>");
                                 out.println("<td>");
-                                out.println("<a href=\"DeleteStaff.jsp?staff_ID=" + staffID + "\">"
-                                        + "<img src=\"IMG/deleteicon.png\" alt=\"delete\"></a>");
+                                out.println("<a href=\"DeleteStaff.jsp?staff_ID=" + staffID + "\"><img src=\"IMG/deleteicon.png\" alt=\"delete\"></a>");
                                 out.println("</td>");
                                 out.println("</tr>");
                             }
