@@ -29,7 +29,6 @@
                     <ul class="nav_links">
                         <li><a href="ManageStaff.jsp">Manage Staff</a></li>
                         <li><a href="ViewSalesReport.jsp">View Sales</a></li>
-                        <li><a href="Feedback.jsp">Feedback</a></li>
                     </ul>
                 </nav>
             </div>
