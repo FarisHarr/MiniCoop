@@ -27,7 +27,7 @@
                 <nav>
                     <ul class="nav_links">
                         <li><a href="ManagePayment.jsp ">Manage Payment</a></li>
-                        <li><a href="ManageProduct.jsp">Manage Product</a></li>
+                        <li><a href="CustomerInfo.jsp">Customer Information</a></li>
                     </ul>
                 </nav>
             </div>

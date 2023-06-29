@@ -62,7 +62,7 @@
                                 response.sendRedirect("ManagePayment.jsp");
                             } else if (userType.equals("manager")) {
                                 // Redirect to owner page
-                                response.sendRedirect("ManageStock.html");
+                                response.sendRedirect("ManageProduct.jsp");
                             } 
 //                            else if (userType.equals("owner")) {
 //                                // Redirect to owner page

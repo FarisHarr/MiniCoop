@@ -27,9 +27,9 @@
                 <img class="logo" src="IMG/logoRe.png" alt="logo">
                 <nav>
                     <ul class="nav_links">
-                        <li><a href="ManageStock.html">Manage Stock</a></li>
-                        <li><a href="ViewStock.html">View Stock</a></li>
-                        <li><a href="Feedback.jsp">Feedback</a></li>
+                        <li><a href="ManageSupplier.html">Manage Supplier</a></li>
+                    <li><a href="ManageProduct.jsp">Manage Product</a></li>
+                    <li><a href="Feedback.jsp">Feedback</a></li>
                     </ul>
                 </nav>
             </div>
