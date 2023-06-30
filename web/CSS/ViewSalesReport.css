@@ -158,7 +158,13 @@ button{
 
 div.table{
     background-color: white;
-    margin-top: 0;
+    margin : 10px;
+}
+
+div.table2{
+    background-color: white;
+    margin : 10px;
+    margin-bottom: 10%;
 }
 
 .table {
@@ -187,9 +193,6 @@ input[type=number] {
     width: 70px;
 }
 
-div.table{
-    margin: 10px;
-}
 
 #table th,
 #table td {
@@ -227,6 +230,7 @@ div.table{
     text-align: center;
     display: grid;
     place-items: center;
+    margin-bottom: 112px;
 }
 
 .print-button button {

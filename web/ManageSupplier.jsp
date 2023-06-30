@@ -91,7 +91,7 @@
                     <td><%= rs.getString("supplier_Location")%></td>
                     <td>
 
-                        <button class="delete" onclick="location.href = 'DeleteSupplier.jsp?supplierId=<%= rs.getString("supplier_ID")%>'">Delete</button>
+                        <button class="delete2" onclick="location.href = 'DeleteSupplier.jsp?supplierId=<%= rs.getString("supplier_ID")%>'">Delete</button>
 <!--                    <button class="delete" onclick="location.href = 'DeleteSupplier.jsp?supplierId=<%= rs.getString("supplier_ID")%>'">
   <img src="IMG/deleteicon.png" alt="Delete Icon"> Delete-->
                     </td>

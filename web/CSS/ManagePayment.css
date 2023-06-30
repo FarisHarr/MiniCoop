@@ -38,6 +38,35 @@ nav.pic {
     margin: 0;
 }
 
+ button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+
+    cursor: pointer;
+    height: 35px;
+}
+
+ button:hover {
+    background-color: #555;
+}
+
+ img {
+    width: 15px;
+}
+
+.search-bar i {
+    font-size: 16px;
+}
+
+.nav-links li:hover {
+    background-color: #EDC8B8;
+    border-radius: 30px;
+    transform: scale(1.02);
+}
+
 ul.nav_links {
     padding: 0px;
 }

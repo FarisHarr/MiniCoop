@@ -309,6 +309,18 @@ button.update{
 button.delete{
     background-color: red;
     color: white;
+    width: 15%;
+    height: 40px;
+    margin: 10px;
+    border-radius: 5px;
+    border-style: none;
+    cursor: pointer;
+    margin-left: 5%;
+}
+
+button.delete2{
+    background-color: red;
+    color: white;
     width: 35%;
     height: 40px;
     margin: 10px;

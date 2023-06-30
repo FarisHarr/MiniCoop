@@ -49,7 +49,9 @@
             <form id="form" action="" method="POST">
                 <label for="receiptNumber">Receipt Number</label>
                 <input type="text" id="inputreceiptNumber" name="receiptNumber">
-                <input type="submit" id="btnsubmit" value="search"/>
+                <button type="submit">
+                            <img src="IMG/search (1).png" alt="searchlogo" />
+                        </button>
 
         </div>
 

@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <style>
             html, body {
-                height: 100%;
+                height: 93%;
                 margin: 0;
                 padding: 0;
             }

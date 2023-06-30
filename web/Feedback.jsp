@@ -17,6 +17,22 @@
         <title>Manager</title>
         <link rel="stylesheet" type="text/css" href="CSS/ViewSalesReport.css">
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <style>
+
+            footer {
+                background-color: #24252a;
+                height: 70px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            p {
+                color: white;
+            }
+
+        </style>
     </head>
 
     <!-- Navigation Bar -->
@@ -27,9 +43,9 @@
                 <img class="logo" src="IMG/logoRe.png" alt="logo">
                 <nav>
                     <ul class="nav_links">
-                    <li><a href="ManageProduct.jsp">Manage Product</a></li>
-                    <li><a href="ManageSupplier.jsp">Manage Supplier</a></li>
-                    <li><a href="Feedback.jsp">Feedback</a></li>
+                        <li><a href="ManageProduct.jsp">Manage Product</a></li>
+                        <li><a href="ManageSupplier.jsp">Manage Supplier</a></li>
+                        <li><a href="Feedback.jsp">Feedback</a></li>
                     </ul>
                 </nav>
             </div>
@@ -50,7 +66,7 @@
             <h2>Feedback</h2>
             <button onclick="refreshSalesReport()">Refresh</button>
         </div>
-        <div class="table">
+        <div class="table2">
             <table id="salesTable">
                 <thead>
                     <tr>
@@ -104,7 +120,8 @@
                 location.reload();
             }
         </script>
-        <jsp:include flush="true" page="Footer.jsp" />
     </body>
-
+    <footer>
+        <p>&copy; MiniCoop 2023</p>
+    </footer>
 </html>

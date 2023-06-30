@@ -33,7 +33,7 @@
                 <li class="dropdown">
                     <a class="nav-link">Account</a>
                     <ul class="dropdown-content">
-<!--                        <li><a href="OwnerProfile.html">Edit Information</a></li>-->
+                        <!--                        <li><a href="OwnerProfile.html">Edit Information</a></li>-->
                         <li><a href="StartPage.html">Sign Out</a></li>
                     </ul>
                 </li>
@@ -44,14 +44,18 @@
         <!--Page-->
         <div class="top-content">
             <h2>Manage Staff</h2>
-            <div class="search-container">
-                <form class="search-bar">
-                    <input type="search" placeholder="Search..." />
-                    <button type="submit">
-                        <img src="IMG/search (1).png" alt="searchlogo" />
-                    </button>
+            <div class="search-container"> 
+                <form class="search-bar" action="ManageStaff.jsp" method="GET">
+                    <div class="form-group" style="margin: 15px;">
+                        <input type="text" id="inputstaffID" name="staffID" placeholder="Staff ID...">
+                        <button type="submit">
+                            <img src="IMG/search (1).png" alt="searchlogo" />
+                        </button>
+                    </div>
                 </form>
+
             </div>
+
             <button class="register-product-button" onclick="showPopup()">Register Staff</button>
         </div>
 
@@ -79,12 +83,12 @@
                     <label for="role">Roles :</label>
                     <select id="role" name="role">
                         <option value="Staff">Staff</option>
-                        <option value="Store Manager">Store Manager</option>
+                        <option value="Manager">Manager</option>
                         <option value="Owner">Owner</option>
                     </select>
                     <br><br><br>
                     <div class="submit-button">
-                    <input class="submit" type="submit" value="Save">
+                        <input class="submit" type="submit" value="Save">
                     </div>
                 </form>
             </div>
@@ -106,19 +110,28 @@
                 </thead>
                 <tbody>
                     <%
+                        String searchStaffID = request.getParameter("staffID");
+                        String query = "SELECT * FROM staff";
+
+                        if (searchStaffID != null && !searchStaffID.isEmpty()) {
+                            query = "SELECT * FROM staff WHERE staff_ID = " + searchStaffID;
+                        }
+
                         try {
                             Class.forName("com.mysql.jdbc.Driver");
                             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");
                             Statement st = con.createStatement();
-                            ResultSet rs = st.executeQuery("SELECT * FROM staff");
+                            ResultSet rs = st.executeQuery(query);
 
                             while (rs.next()) {
+                                // Retrieve staff details from the result set
                                 String staffID = rs.getString("staff_ID");
                                 String staffName = rs.getString("staff_Name");
                                 String email = rs.getString("staff_Email");
                                 String phone = rs.getString("staff_Phone");
                                 String role = rs.getString("staff_Role");
 
+                                // Output staff details in table rows
                                 out.println("<tr>");
                                 out.println("<td>" + staffID + "</td>");
                                 out.println("<td>" + staffName + "</td>");
@@ -140,6 +153,7 @@
                             out.println("Error: " + e);
                         }
                     %>
+
                 </tbody>
             </table>
         </div>
@@ -190,7 +204,7 @@
                 });
             }
         </script>
-         <jsp:include flush="true" page="Footer.jsp" />
+        <jsp:include flush="true" page="Footer.jsp" />
     </body>
 
 </html>

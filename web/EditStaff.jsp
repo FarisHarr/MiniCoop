@@ -77,7 +77,7 @@
                 <label for="role">Roles :</label>
                 <select id="role" name="role">
                     <option value="Staff">Staff</option>
-                    <option value="Manager">Store Manager</option>
+                    <option value="Manager">Manager</option>
                     <option value="Owner">Owner</option>
                 </select>
                 <br><br><br>

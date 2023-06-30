@@ -17,6 +17,22 @@
         <title>Owner</title>
         <link rel="stylesheet" type="text/css" href="CSS/ViewSalesReport.css">
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        
+        <style>
+
+            footer {
+                background-color: #24252a;
+                height: 70px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            p {
+                color: white;
+            }
+
+        </style>
     </head>
 
     <!-- Navigation Bar -->
@@ -105,8 +121,10 @@
                 location.reload();
             }
         </script>
-        <jsp:include flush="true" page="Footer.jsp" />
     </body>
 
+    <footer>
+        <p>&copy; MiniCoop 2023</p>
+    </footer>
 </html>
 
