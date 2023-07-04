@@ -26,9 +26,9 @@
                 <img class="logo" src="IMG/logoRe.png" alt="logo">
                 <nav>
                     <ul class="nav_links">
-                    <li><a href="ManageProduct.jsp">Manage Product</a></li>
-                    <li><a href="ManageSupplier.jsp">Manage Supplier</a></li>
-                    <li><a href="Feedback.jsp">Feedback</a></li>
+                        <li><a href="ManageProduct.jsp">Manage Product</a></li>
+                        <li><a href="ManageSupplier.jsp">Manage Supplier</a></li>
+                        <li><a href="Feedback.jsp">Feedback</a></li>
                     </ul>
                 </nav>
             </div>
@@ -42,7 +42,7 @@
             </nav>
         </header>
 
-
+        <!--Page-->
         <h2>Manage Product</h2>
 
         <button class="register-product-button" onclick="showPopup()">Add Product</button>
@@ -98,9 +98,12 @@
                 </tr>
                 <%
                         }
+                        // Close the database connection
+                st.close();
+                con.close();
 
                     } catch (Exception e) {
-
+                        out.println("Error: " + e);
                     }
                 %>
             </tbody>

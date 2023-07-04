@@ -24,7 +24,6 @@
                 addprod.setPrice(Double.parseDouble(request.getParameter("price")));
                 addprod.setQuantity(Integer.parseInt(request.getParameter("quantity")));
 
-
                 // Prepare the SQL statement
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");

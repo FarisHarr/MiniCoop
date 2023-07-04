@@ -52,7 +52,7 @@
                 <span class="close" onclick="hidePopup()">&times;</span>
                 <h3>Add Supplier</h3>
                 <form id="addSupplierForm" action="AddSupplier.jsp" method="POST">
-                    <input type="text" name="suppliercode" placeholder="Supplier Code" required><br><br>
+                    <input type="text" name="supplierID" placeholder="Supplier ID" required><br><br>
                     <input type="text" name="suppliername" placeholder="Supplier Name" required><br><br>
                     <input type="text" name="supplieritems" placeholder="Supplier Items" required><br><br>
                     <input type="text" name="supplierlocation" placeholder="Supplier Location" required><br><br>
@@ -91,9 +91,8 @@
                     <td><%= rs.getString("supplier_Location")%></td>
                     <td>
 
-                        <button class="delete2" onclick="location.href = 'DeleteSupplier.jsp?supplierId=<%= rs.getString("supplier_ID")%>'">Delete</button>
-<!--                    <button class="delete" onclick="location.href = 'DeleteSupplier.jsp?supplierId=<%= rs.getString("supplier_ID")%>'">
-  <img src="IMG/deleteicon.png" alt="Delete Icon"> Delete-->
+                        <button class="delete2" onclick="location.href = 'DeleteSupplier.jsp?supplier_ID=<%= rs.getString("supplier_ID")%>'">Delete</button>
+
                     </td>
                 </tr>
                 <%
@@ -148,7 +147,7 @@
                 };
 
                 // Send the request
-                xhr.send("suppliercode=" + encodeURIComponent(supplierCode) + "&supplierName=" + encodeURIComponent(supplierName));
+                xhr.send("supplierID=" + encodeURIComponent(supplierID) + "&supplierName=" + encodeURIComponent(supplierName));
             }
         </script>
 

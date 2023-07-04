@@ -50,8 +50,8 @@
                 <label for="receiptNumber">Receipt Number</label>
                 <input type="text" id="inputreceiptNumber" name="receiptNumber">
                 <button type="submit">
-                            <img src="IMG/search (1).png" alt="searchlogo" />
-                        </button>
+                    <img src="IMG/search (1).png" alt="searchlogo" />
+                </button>
 
         </div>
 
@@ -65,16 +65,15 @@
                         <th>Receipt Number</th>
                         <th>Customer Name</th>
                         <th>Product Name</th>
-                        <th>Quantity</th>
+                        <th>Product Quantity</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <!-- <c:forEach items="${receipt}" var="receipt" -->
-
                     <%
                         try {
-                        
+
                             receiptnum.setReceiptNumber(request.getParameter("receiptNumber"));
                             ResultSet rs;
                             PreparedStatement st;
@@ -83,7 +82,9 @@
                             String receiptid = receiptnum.getReceiptNumber();
 
                             if (receiptid == null || receiptid.isEmpty()) {
-                                st = con.prepareStatement("SELECT * FROM receipt");
+//                                st = con.prepareStatement("SELECT * FROM receipt");
+                                st = con.prepareStatement("SELECT receipt.receipt_ID, customer.cust_Name, receipt.prod_Name, receipt.prod_Qty, receipt.Price FROM receipt "
+                                        + "JOIN customer ON receipt.cust_ID = customer.cust_ID");
                                 rs = st.executeQuery();
 
                                 while (rs.next()) {
@@ -93,14 +94,17 @@
                         <td><%=rs.getString("cust_Name")%></td>
                         <td><%=rs.getString("prod_Name")%></td>
                         <td><%=rs.getString("prod_Qty")%></td>
+                        <td><%=Double.parseDouble(rs.getString("Price"))*Integer.parseInt(rs.getString("prod_Qty"))%></td>
                     </tr>
 
                     <%
                         }
                     } else {
-                        st = con.prepareStatement("SELECT * FROM receipt where receipt_ID =?");
+                        st = con.prepareStatement("SELECT receipt.receipt_ID, customer.cust_Name, receipt.prod_Name, receipt.prod_Qty, receipt.Price FROM receipt "
+                                + "JOIN customer ON receipt.cust_ID = customer.cust_ID WHERE receipt.receipt_ID = ? OR customer.cust_Name LIKE ?");
 
                         st.setString(1, receiptnum.getReceiptNumber());
+                        st.setString(2, receiptnum.getReceiptNumber());
                         rs = st.executeQuery();
                         while (rs.next()) {
                     %>
@@ -110,6 +114,7 @@
                         <td><%=rs.getString("cust_Name")%></td>
                         <td><%=rs.getString("prod_Name")%></td>
                         <td><%=rs.getString("prod_Qty")%></td>
+                        <td><%=Double.parseDouble(rs.getString("Price"))*Integer.parseInt(rs.getString("prod_Qty"))%></td>
                     </tr>
                     <%
                                 }
@@ -122,7 +127,7 @@
                 </tbody>
             </table>
         </div>
-                     <jsp:include flush="true" page="Footer.jsp" />
+        <jsp:include flush="true" page="Footer.jsp" />
     </body>
 
 </html>

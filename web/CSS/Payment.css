@@ -131,14 +131,14 @@ button {
     background-color: #24252a;
 }
 
- /* content */
+/* content */
 body {
-  box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    text-decoration: none;
 }
 h2{
     margin: 10px;
@@ -146,217 +146,220 @@ h2{
 
 h3{
     text-align: center;
+    margin: 10px;
+}
+
+p{
+    color: black;
+    text-align: center;
 }
 
 .container h2 {
-  margin-bottom: 0px;
-  margin-top: 25px;
-  text-align: center;
-  font-weight: 200;
-  font-size: 19px;
-  font-size: 1.2rem;
+    margin-bottom: 0px;
+    margin-top: 25px;
+    text-align: center;
+    font-size: 25px;
 }
 
 .container {
-  height: 100%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+    height: 100%;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
 
 
-  /* background: -webkit-linear-gradient(#c5e5e5, #ccddf9);
-    background: linear-gradient(#c9e5e9, #ccddf9); */
+    /* background: -webkit-linear-gradient(#c5e5e5, #ccddf9);
+      background: linear-gradient(#c9e5e9, #ccddf9); */
 }
 
 .window {
-  height: 540px;
-  width: 800px;
-  background: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-shadow: 15px 15px 20px  black;
+    height: 540px;
+    width: 800px;
+    background: #fff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    box-shadow: 15px 15px 20px  black;
 
-  z-index: 10;
+    z-index: 10;
 }
 /* FIRST HALF */
 .order-info {
-  height: 100%;
-  width: 50%;
-  padding-left: 25px;
-  padding-right: 25px;
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  position: relative;
-  
+    height: 100%;
+    width: 50%;
+    padding-left: 25px;
+    padding-right: 25px;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+
 }
 
 .thin {
-  font-weight: 400;
+    font-weight: 400;
 }
 
 .small {
-  font-size: 12px;
-  font-size: 0.8rem;
+    font-size: 12px;
+    font-size: 0.8rem;
 }
 
 .price {
-  bottom: 0px;
-  position: absolute;
-  right: 0px;
-  color: #4488dd;
+    bottom: 0px;
+    position: absolute;
+    right: 0px;
+    color: #4488dd;
 }
 
 .order-table td:first-of-type {
-  width: 25%;
+    width: 25%;
 }
 
 .order-table {
-  position: relative;
+    position: relative;
 }
 
 .line {
-  height: 1px;
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background: #ddd;
+    height: 1px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #ddd;
 }
 
 .order-table td:last-of-type {
-  vertical-align: top;
-  padding-left: 25px;
+    vertical-align: top;
+    padding-left: 25px;
 }
 
 .order-info-content {
-  table-layout: fixed;
+    table-layout: fixed;
 }
 
 .full-width {
-  width: 100%;
+    width: 100%;
 }
 
 .total {
-  margin-top: 25px;
-  font-size: 20px;
-  font-size: 1.3rem;
-  position: absolute;
-  bottom: 30px;
-  right: 27px;
-  left: 35px;
+    margin-top: 25px;
+    font-size: 20px;
+    font-size: 1.3rem;
+    position: absolute;
+    bottom: 30px;
+    right: 27px;
+    left: 35px;
 }
 
 .dense {
-  line-height: 1.2em;
-  font-size: 16px;
-  font-size: 1rem;
+    line-height: 1.2em;
+    font-size: 16px;
+    font-size: 1rem;
 }
 
 .input-field {
-  background: rgba(255, 255, 255, 0.1);
-  margin: 10px 0;
-  margin-bottom: 10px;
-  margin-top: 3px;
-  line-height: 1.5em;
-  font-size: 20px;
-  font-size: 1.3rem;
-  border: none;
-  padding: 5px 10px 5px 10px;
-  color: #fff;
-  box-sizing: border-box;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 10px 0;
+    margin-bottom: 10px;
+    margin-top: 3px;
+    line-height: 1.5em;
+    font-size: 20px;
+    font-size: 1.3rem;
+    border: none;
+    padding: 5px 10px 5px 10px;
+    color: #fff;
+    box-sizing: border-box;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* SECOND HALF */
 .payment {
-  background: #24252a;
-  height: 100%;
-  width: 50%;
-  color: #eee;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  font-size: 14px;
-  font-size: 0.9rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  padding-left: 25px;
-  padding-right: 25px;
-  position: relative;
+    background: #24252a;
+    height: 100%;
+    width: 50%;
+    color: #eee;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-size: 14px;
+    font-size: 0.9rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    box-sizing: border-box;
+    padding-left: 25px;
+    padding-right: 25px;
+    position: relative;
+}
+
+.half-input-table p {
+    color: white;
 }
 
 .payment-content img {
-  max-width: 200px;
-  height: auto;
-  margin-top: 0px;
-  border-radius: 0px;
+    max-width: 200px;
+    height: auto;
+    margin-top: 0px;
+    border-radius: 0px;
 }
 
 .payment-content {
-  margin-top: 25px;
-  -webkit-flex-flow: column;
-  -ms-flex-flow: column;
-  flex-flow: column;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  text-align: center;
-  width: 100%;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
 }
 
 @media (max-width: 600px) {
-  .window {
-    width: 100%;
-    height: 100%;
-    display: block;
-    border-radius: 0px;
-  }
+    .window {
+        width: 100%;
+        height: 100%;
+        display: block;
+        border-radius: 0px;
+    }
 
-  .order-info {
-    width: 100%;
-    height: auto;
-    padding-bottom: 100px;
-    border-radius: 0px;
-  }
+    .order-info {
+        width: 100%;
+        height: auto;
+        padding-bottom: 100px;
+        border-radius: 0px;
+    }
 
-  .payment {
-    width: 100%;
-    height: auto;
-    padding-bottom: 100px;
-    border-radius: 0px;
-  }
+    .payment {
+        width: 100%;
+        height: auto;
+        padding-bottom: 100px;
+        border-radius: 0px;
+    }
 
-  .pay-btn {
-    margin-top: 10px;
-    width: 100%;
-  }
+    .pay-btn {
+        margin-top: 10px;
+        width: 100%;
+    }
 }
 
 .pay-btn {
@@ -364,21 +367,16 @@ h3{
     background: #22b877;
     line-height: 2em;
     border-radius: 10px;
-    font-size: 19px;
     font-size: 1.2rem;
     color: #fff;
     cursor: pointer;
-    position: absolute;
-    bottom: 25px;
-    text-decoration: none;
-    width: calc(100% - 50px);
-    -webkit-transition: all .2s ease;
-    transition: all .2s ease;
+    margin-top: 10px;
+    width: 200px; /* Adjust the width as needed */
 }
 
 .pay-btn:hover {
-  background: #0088a9;
-  color: #000000;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+    background: #0088a9;
+    color: #000000;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }

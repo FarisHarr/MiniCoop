@@ -9,6 +9,7 @@ public class AddProduct {
     private String productname;
     private int quantity;
     private double price;
+    private byte[] image; // Change the type to byte[] for BLOB
 
     public int getProductcode() {
         return productcode;
@@ -40,6 +41,14 @@ public class AddProduct {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
     
 }

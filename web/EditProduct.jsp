@@ -37,7 +37,7 @@
                 <label>Product ID</label>
                 <input type="text" name="productId" value="<%= productId%>" readonly><br><br>
                 <label>Product Name</label>
-                <input type="text" name="productName" value="<%= productName%>" size="10%" placeholder="Product Name" required><br><br>
+                <input type="text" name="productName" value="<%= productName%>"  placeholder="Product Name" required><br><br>
                 <label>Product Quantity</label>
                 <input type="number" name="quantity" value="<%= quantity%>" placeholder="Quantity" required><br><br>
                 <label>Price</label>

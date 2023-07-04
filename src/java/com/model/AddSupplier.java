@@ -9,18 +9,19 @@ package com.model;
  * @author FarisHarr
  */
 public class AddSupplier {
-    private int suppliercode;
+    private int supplierID;
     private String suppliername;
     private String supplieritems;
     private String supplierlocation;
 
-    public int getSuppliercode() {
-        return suppliercode;
+    public int getSupplierID() {
+        return supplierID;
     }
 
-    public void setSuppliercode(int suppliercode) {
-        this.suppliercode = suppliercode;
+    public void setSupplierID(int supplierID) {
+        this.supplierID = supplierID;
     }
+
 
     public String getSuppliername() {
         return suppliername;

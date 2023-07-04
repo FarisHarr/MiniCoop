@@ -19,7 +19,6 @@
             footer  p {
                 color: white;
             }
-            
         </style>
     </head>
     <body>
@@ -64,7 +63,6 @@
             </div>
         </div>
         <script>
-
             const product = [
                 {
                     id: 0,
@@ -125,6 +123,41 @@
                         )
             }).join('');
 
+            function retrieveProductData() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "Product.jsp", true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        var productData = JSON.parse(xhr.responseText);
+                        renderProductData(productData);
+                    }
+                };
+                xhr.send();
+            }
+
+            function renderProductData(productData) {
+                var rootElement = document.getElementById("root");
+                rootElement.innerHTML = "";
+
+                productData.forEach(function (product) {
+                    var html = `
+                    <div class="box">
+                        <div class="img-box">
+                            <img class="images" src="${product.image}"></img>
+                        </div>
+                        <div class="bottom">
+                            <p>${product.title}</p>
+                            <h2>$ ${product.price}.00</h2>
+                            <button onclick="addtocart(${product.id})">Add to cart</button>
+                        </div>
+                    </div>`;
+                    rootElement.insertAdjacentHTML("beforeend", html);
+                });
+            }
+
+            // Call the retrieveProductData function when the page loads
+            window.addEventListener("load", retrieveProductData);
+
             var cart = [];
 
             function addtocart(a) {
@@ -151,6 +184,7 @@
                 xhr.send(params);
             }
 
+
             function delElement(a) {
                 var item = cart[a];
                 var itemId = item.id;
@@ -170,6 +204,8 @@
                 // Send the request
                 xhr.send();
             }
+
+
 
             function displaycart() {
                 let j = 0, total = 0;
@@ -196,9 +232,9 @@
                                 );
                     }).join('');
                 }
-
-
             }
+
+
 
             function goToPayment() {
                 // Create a URL parameter string with the cart data
@@ -207,8 +243,10 @@
                 }).join("&");
 
                 // Redirect to the payment page with the cart data as URL parameters
-                window.location.href = "Payment.html?" + cartParams;
+                window.location.href = "Payment.jsp?" + cartParams;
             }
+
+
         </script>
     </body>
     <footer>
