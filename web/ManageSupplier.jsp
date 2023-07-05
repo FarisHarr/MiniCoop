@@ -52,7 +52,7 @@
                 <span class="close" onclick="hidePopup()">&times;</span>
                 <h3>Add Supplier</h3>
                 <form id="addSupplierForm" action="AddSupplier.jsp" method="POST">
-                    <input type="text" name="supplierID" placeholder="Supplier ID" required><br><br>
+                    <!--<input type="text" name="supplierID" placeholder="Supplier ID" required><br><br>-->
                     <input type="text" name="suppliername" placeholder="Supplier Name" required><br><br>
                     <input type="text" name="supplieritems" placeholder="Supplier Items" required><br><br>
                     <input type="text" name="supplierlocation" placeholder="Supplier Location" required><br><br>

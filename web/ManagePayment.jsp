@@ -94,7 +94,7 @@
                         <td><%=rs.getString("cust_Name")%></td>
                         <td><%=rs.getString("prod_Name")%></td>
                         <td><%=rs.getString("prod_Qty")%></td>
-                        <td><%=Double.parseDouble(rs.getString("Price"))*Integer.parseInt(rs.getString("prod_Qty"))%></td>
+                        <td><%=Double.parseDouble(rs.getString("Price")) * Integer.parseInt(rs.getString("prod_Qty"))%></td>
                     </tr>
 
                     <%
@@ -114,7 +114,7 @@
                         <td><%=rs.getString("cust_Name")%></td>
                         <td><%=rs.getString("prod_Name")%></td>
                         <td><%=rs.getString("prod_Qty")%></td>
-                        <td><%=Double.parseDouble(rs.getString("Price"))*Integer.parseInt(rs.getString("prod_Qty"))%></td>
+                        <td><%=Double.parseDouble(rs.getString("Price")) * Integer.parseInt(rs.getString("prod_Qty"))%></td>
                     </tr>
                     <%
                                 }
