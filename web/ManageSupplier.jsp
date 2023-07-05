@@ -55,6 +55,7 @@
                     <!--<input type="text" name="supplierID" placeholder="Supplier ID" required><br><br>-->
                     <input type="text" name="suppliername" placeholder="Supplier Name" required><br><br>
                     <input type="text" name="supplieritems" placeholder="Supplier Items" required><br><br>
+                    <input type="text" name="supplierphone" placeholder="Supplier Phone" required><br><br>
                     <input type="text" name="supplierlocation" placeholder="Supplier Location" required><br><br>
                     <input class="add" type="submit" value="Add Supplier"/>
                 </form>
@@ -67,6 +68,7 @@
                     <th>Supplier ID</th>
                     <th>Supplier Name</th>
                     <th>Supplier Items</th>
+                    <th>Supplier Phone</th>
                     <th>Location</th>
                     <th>Action</th>
                 </tr>
@@ -88,6 +90,7 @@
                     <td><%= rs.getString("supplier_ID")%></td>
                     <td><%= rs.getString("supplier_Name")%></td>
                     <td><%= rs.getString("supplier_Items")%></td>
+                    <td><%= rs.getString("supplier_Phone")%></td>
                     <td><%= rs.getString("supplier_Location")%></td>
                     <td>
 

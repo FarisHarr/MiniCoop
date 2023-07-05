@@ -25,17 +25,19 @@
 //                addsupp.setSupplierID(Integer.parseInt(request.getParameter("supplierID")));
                 addsupp.setSuppliername(request.getParameter("suppliername"));
                 addsupp.setSupplieritems(request.getParameter("supplieritems"));
+                addsupp.setSupplierphone(request.getParameter("supplierphone"));
                 addsupp.setSupplierlocation(request.getParameter("supplierlocation"));
 
 
                 // Prepare the SQL statement
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/minicoop2", "root", "admin");
-                PreparedStatement st = con.prepareStatement("INSERT INTO supplier (supplier_Name, supplier_Items, supplier_Location) VALUES (?, ?, ?)");
+                PreparedStatement st = con.prepareStatement("INSERT INTO supplier (supplier_Name, supplier_Items, supplier_Phone, supplier_Location) VALUES (?, ?, ?, ?)");
 //                st.setInt(1, addsupp.getSupplierID());
                 st.setString(1, addsupp.getSuppliername());
                 st.setString(2, addsupp.getSupplieritems());
-                st.setString(3, addsupp.getSupplierlocation());
+                st.setString(3, addsupp.getSupplierphone());
+                st.setString(4, addsupp.getSupplierlocation());
                 st.executeUpdate();     
 
                 // Close the database connection

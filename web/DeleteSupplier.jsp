@@ -89,6 +89,7 @@
                     if (rs.next()) {
                         String supplierName = rs.getString("supplier_Name");
                         String supplierItems = rs.getString("supplier_Items");
+                        String supplierPhone = rs.getString("supplier_Phone");
                         String supplierLocation = rs.getString("supplier_Location");
         %>
         <div class="popup-content">
@@ -106,6 +107,10 @@
                 <tr>
                     <td>Items :</td>
                     <td><%= supplierItems%></td>
+                </tr>
+                <tr>
+                    <td>Phone Number :</td>
+                    <td><%= supplierPhone%></td>
                 </tr>
                 <tr>
                     <td>Location :</td>

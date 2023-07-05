@@ -12,6 +12,7 @@ public class AddSupplier {
     private int supplierID;
     private String suppliername;
     private String supplieritems;
+    private String supplierphone;
     private String supplierlocation;
 
     public int getSupplierID() {
@@ -37,6 +38,14 @@ public class AddSupplier {
 
     public void setSupplieritems(String supplieritems) {
         this.supplieritems = supplieritems;
+    }
+
+    public String getSupplierphone() {
+        return supplierphone;
+    }
+
+    public void setSupplierphone(String supplierphone) {
+        this.supplierphone = supplierphone;
     }
 
     public String getSupplierlocation() {
